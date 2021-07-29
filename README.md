@@ -1,6 +1,5 @@
-n2p2 - The neural network potential package
-       Version mified by A.R. Allouche
-===========================================
+n2p2 - The neural network potential package, version midifed by A.R. Allouche
+=============================================================================
 
 [![DOI](https://zenodo.org/badge/142296892.svg)](https://zenodo.org/badge/latestdoi/142296892)
 [![Build Status](https://travis-ci.org/CompPhysVienna/n2p2.svg?branch=master)](https://travis-ci.org/CompPhysVienna/n2p2)
@@ -9,6 +8,10 @@ n2p2 - The neural network potential package
 
 This repository provides ready-to-use software for high-dimensional neural
 network potentials in computational physics and chemistry.
+Added by A.R. Allouche : 
+ * NN for partial charges and dipoles
+ * High derivatives of energies (2, 3, 4)
+ * dftd3 grimme correction to energie
 
 # Documentation
 

@@ -1,4 +1,5 @@
 n2p2 - The neural network potential package
+       Version mified by A.R. Allouche
 ===========================================
 
 [![DOI](https://zenodo.org/badge/142296892.svg)](https://zenodo.org/badge/latestdoi/142296892)

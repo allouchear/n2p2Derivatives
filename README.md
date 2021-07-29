@@ -15,13 +15,6 @@ Added by A.R. Allouche :
 
 # Documentation
 
-## Online version
-This package uses automatic documentation generation via
-[Sphinx](http://www.sphinx-doc.org), [doxygen](http://www.doxygen.nl/) and
-[Exhale](https://github.com/svenevs/exhale). An online version of the
-documentation which is automatically updated with the main repository can be
-found [__here__](http://compphysvienna.github.io/n2p2).
-
 ## Build your own documentation
 It is also possible to build your own documentation for offline reading.
 Install the above dependencies, change to the `src` directory and try to build
@@ -43,6 +36,7 @@ doc/html/index.html
 # Authors
 
  - Andreas Singraber (University of Vienna)
+ - Abdulrahman Allouche (Lyon 1 University)
 
 # License
 

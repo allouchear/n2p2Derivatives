@@ -1,0 +1,4 @@
+cd ../application
+./xmake
+cd ../../examples/nnp-traines/H2O_RPBE-D3
+./xtrain

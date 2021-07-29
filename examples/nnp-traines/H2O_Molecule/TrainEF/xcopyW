@@ -1,0 +1,3 @@
+nn="001000"
+cp weights.001.${nn}.out weights.001.data
+cp weights.008.${nn}.out weights.008.data

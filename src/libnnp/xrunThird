@@ -1,0 +1,16 @@
+make
+cd ../application
+rm nnp-predictHighDerivativesThird
+make
+cd -
+
+#cd ../../examples/nnp-predict/H2O_2DerivativesRadWideNarrow/
+#cd ../../examples/nnp-predict/H2O_2DerivativesRadNarrow/
+#cd ../../examples/nnp-predict/H2O_2DerivativesRadialNorm/
+#cd ../../examples/nnp-predict/H2O_2DerivativesWRadialAngular/
+#cd ../../examples/nnp-predict/H2O_2DerivativesWRadial/
+cd ../../examples/nnp-predict/H2O_2DerivativesRadWide/
+#cd ../../examples/nnp-predict/H2O_2DerivativesRadial/
+
+
+../../../bin/nnp-predictHighDerivativesThird  1e-8

@@ -1,0 +1,16 @@
+END{
+ab=1.0/0.529177
+for(i=1;i<iAtom;i++) x[i] *= ab;
+for(i=1;i<iAtom;i++) y[i] *= ab;
+for(i=1;i<iAtom;i++) z[i] *= ab;
+
+printf("begin\n")
+printf("comment by xLogML\n")
+for(i=1;i<iAtom;i++)
+{
+  printf("atom %0.12f %0.12f %0.12f %s %0.12f %0.12f %0.12f %0.12f %0.12f\n",x[i],y[i],z[i],sym[i],ch[i], 0.0, fx[i], fy[i], fz[i]);
+}
+printf("energy  %0.14f\n", ener)
+printf("charge  %0.14f\n", charge)
+printf("end\n")
+}' $1

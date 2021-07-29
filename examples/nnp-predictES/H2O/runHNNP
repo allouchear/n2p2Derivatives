@@ -1,0 +1,128 @@
+#!/bin/bash
+RUNHNNP="/home/allouche/Softwares/n2p2-master/bin/nnp-predict 1"
+
+source /home/allouche/Softwares/n2p2-master/env.sh
+
+filename=$1 ; [ 0 = $# ] || shift
+outname=$1 ; [ 0 = $# ] || shift
+
+if [ -z "$filename" ]
+then
+   clear
+   echo " " 
+   echo "==========================================="
+   echo "                 runHNNP "
+   echo "-------------------------------------------"
+   echo "Example:"
+   echo "       runHNNP h2.com h2.out"
+   echo "==========================================="
+   echo " " 
+   exit 1
+fi
+filecom=$filename
+filename=${filecom%.inp}
+filename=${filename%.com}
+
+DEFAULTDIR=`pwd`
+if test ! -s "$filecom"
+then
+   echo " " 
+   echo "============================================"
+   echo " I cannot find $filecom file"
+   echo "==============================================================================="
+   echo " " 
+   exit 2
+fi
+
+cd $DEFAULTDIR
+#cat $filecom
+fn=input.data
+
+awk -v molproVersion=$molproVersion 'BEGIN{
+natoms=0;
+
+printf("begin\n")
+printf("comment by runHNNP\n")
+i==0
+ab=1.0/0.5291772083
+}
+{
+i++;
+#printf("i=%d s=%s\n",i,$1);
+
+if(i==1) { option=$1 }
+if(i==3) 
+{ 
+	natoms=$1
+	charge=$2 
+	mult=$3
+}
+if(i>3 && i<=natoms+3)
+{
+printf("atom %0.12f %0.12f %0.12f %s %0.12f %0.12f %0.12f %0.12f %0.12f\n",$9*ab,$10*ab,$11*ab,$1,0.0, 0.0, 0.0, 0.0, 0.0);
+}
+
+}
+END{
+ener=0.0
+charge=0.0
+printf("energy  %s\n", ener)
+printf("charge  %s\n", charge)
+printf("end\n")
+}' $filecom > $fn
+
+#cat $fn
+
+filenameRes=${filename}_$$.out
+filenameErr=${filename}_$$.err
+
+$RUNHNNP > $filenameRes 2> $filenameErr
+
+#cat $filenameRes
+
+
+#-------------------------------------------------------------------------------
+#NNP energy:  -7.64011956E+01
+
+#NNP forces:
+#         1  O   0.00000000E+00  -2.37754658E-17   1.94605028E-04
+#         2  H   0.00000000E+00  -9.38170801E-05  -9.73025138E-05
+#         3  H   0.00000000E+00   9.38170801E-05  -9.73025138E-05
+#-------------------------------------------------------------------------------
+energy=$(grep "NNP energy:" $filenameRes | awk '{ printf("%0.12f",$3); }')
+mux=0.0
+muy=0.0
+muz=0.0
+#echo energy = $energy
+#echo Mu = $mux $muy $muz
+#echo $outname
+echo $energy >  $outname
+echo $mux $muy $muz >>  $outname
+#echo 
+awk 'BEGIN{
+id=0
+iold=0
+}
+{
+	if(id>=1)
+	{ 
+		if(NF != 5) id=0; 
+		#else printf("%0.12e %0.12e %0.12e\n",-$3,-$4,-$5);
+		#else printf("%0.12f %0.12f %0.12f\n",-$3,-$4,-$5);
+		else printf("%0.14e %0.14e %0.14e\n",$3,$4,$5);
+	}  
+	if($0 ~ /NNP forces:/) { id=1;}
+}' $filenameRes >>  $outname
+
+#cat $outname
+
+#echo ============== $outname ===================
+#cat $outname
+#echo "==============================================================================="
+
+#rm $fn
+rm $filenameRes
+rm $filenameErr
+
+#echo ============== $filenameRes ===================
+

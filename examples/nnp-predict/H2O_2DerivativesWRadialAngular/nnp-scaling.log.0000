@@ -1,0 +1,249 @@
+
+*** SETUP: MPI ****************************************************************
+
+Number of processors: 1
+Process 1 of 1 (rank 0): ilmfixe086
+*******************************************************************************
+
+*******************************************************************************
+
+   NNP LIBRARY v2.0.0
+   ------------------
+
+Git branch  : 
+Git revision:  ()
+
+Number of OpenMP threads: 8
+*******************************************************************************
+
+*** SETUP: SETTINGS FILE ******************************************************
+
+Settings file name: input.nn
+Read 59 lines.
+Found 35 lines with keywords.
+*******************************************************************************
+
+*** SETUP: NORMALIZATION ******************************************************
+
+Data set normalization is not used.
+*******************************************************************************
+
+*** SETUP: ELEMENT MAP ********************************************************
+
+Number of element strings found: 2
+Element  0:  H (  1)
+Element  1:  O (  8)
+*******************************************************************************
+
+*** SETUP: ELEMENTS ***********************************************************
+
+Number of elements is consistent: 2
+Atomic energy offsets per element:
+Element  0:   0.00000000E+00
+Element  1:   0.00000000E+00
+Energy offsets are automatically subtracted from reference energies.
+*******************************************************************************
+
+*** SETUP: CUTOFF FUNCTIONS ***************************************************
+
+Parameter alpha for inner cutoff: 0.000000
+Inner cutoff = Symmetry function cutoff * alpha
+Equal cutoff function type for all symmetry functions:
+CutoffFunction::CT_TANHU (2)
+f(r) = tanh^3(1 - r/rc)
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTIONS *************************************************
+
+Abbreviations:
+--------------
+ind .... Symmetry function index.
+ec ..... Central atom element.
+ty ..... Symmetry function type.
+e1 ..... Neighbor 1 element.
+e2 ..... Neighbor 2 element.
+eta .... Gaussian width eta.
+rs ..... Shift distance of Gaussian.
+la ..... Angle prefactor lambda.
+zeta ... Angle term exponent zeta.
+rc ..... Cutoff radius.
+ct ..... Cutoff type.
+ca ..... Cutoff alpha.
+ln ..... Line number in settings file.
+
+Short range atomic symmetry functions element  H :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln
+-------------------------------------------------------------------------------
+   1  H  2  H    1.000E-03 0.000E+00         1.200E+01  2 0.00    32
+   2  H  2  O    1.000E-03 0.000E+00         1.200E+01  2 0.00    42
+   3  H  2  H    1.000E-02 0.000E+00         1.200E+01  2 0.00    33
+   4  H  2  O    1.000E-02 0.000E+00         1.200E+01  2 0.00    43
+   5  H  2  H    3.000E-02 0.000E+00         1.200E+01  2 0.00    34
+   6  H  2  O    3.000E-02 0.000E+00         1.200E+01  2 0.00    44
+   7  H  2  H    6.000E-02 0.000E+00         1.200E+01  2 0.00    35
+   8  H  2  O    6.000E-02 0.000E+00         1.200E+01  2 0.00    45
+   9  H  2  O    1.500E-01 9.000E-01         1.200E+01  2 0.00    46
+  10  H  2  H    1.500E-01 1.900E+00         1.200E+01  2 0.00    36
+  11  H  2  O    3.000E-01 9.000E-01         1.200E+01  2 0.00    47
+  12  H  2  H    3.000E-01 1.900E+00         1.200E+01  2 0.00    37
+  13  H  2  O    6.000E-01 9.000E-01         1.200E+01  2 0.00    48
+  14  H  2  H    6.000E-01 1.900E+00         1.200E+01  2 0.00    38
+  15  H  2  O    1.500E+00 9.000E-01         1.200E+01  2 0.00    49
+  16  H  2  H    1.500E+00 1.900E+00         1.200E+01  2 0.00    39
+-------------------------------------------------------------------------------
+Short range atomic symmetry functions element  O :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln
+-------------------------------------------------------------------------------
+   1  O  2  H    1.000E-03 0.000E+00         1.200E+01  2 0.00    51
+   2  O  2  H    1.000E-02 0.000E+00         1.200E+01  2 0.00    52
+   3  O  2  H    3.000E-02 0.000E+00         1.200E+01  2 0.00    53
+   4  O  2  H    6.000E-02 0.000E+00         1.200E+01  2 0.00    54
+   5  O  2  H    1.500E-01 9.000E-01         1.200E+01  2 0.00    55
+   6  O  2  H    3.000E-01 9.000E-01         1.200E+01  2 0.00    56
+   7  O  2  H    6.000E-01 9.000E-01         1.200E+01  2 0.00    57
+   8  O  2  H    1.500E+00 9.000E-01         1.200E+01  2 0.00    58
+-------------------------------------------------------------------------------
+Minimum cutoff radius for element  H: 12.000000
+Minimum cutoff radius for element  O: 12.000000
+Maximum cutoff radius (global)      : 12.000000
+*******************************************************************************
+
+*** SETUP: NEURAL NETWORKS ****************************************************
+
+Normalize neurons (all elements): 0
+-------------------------------------------------------------------------------
+Atomic short range NN for element  H :
+Number of weights    :   1050
+Number of biases     :     51
+Number of connections:   1101
+Architecture       16   25   25    1
+-------------------------------------------------------------------------------
+   1   G   t   t   l
+   2   G   t   t    
+   3   G   t   t    
+   4   G   t   t    
+   5   G   t   t    
+   6   G   t   t    
+   7   G   t   t    
+   8   G   t   t    
+   9   G   t   t    
+  10   G   t   t    
+  11   G   t   t    
+  12   G   t   t    
+  13   G   t   t    
+  14   G   t   t    
+  15   G   t   t    
+  16   G   t   t    
+  17       t   t    
+  18       t   t    
+  19       t   t    
+  20       t   t    
+  21       t   t    
+  22       t   t    
+  23       t   t    
+  24       t   t    
+  25       t   t    
+-------------------------------------------------------------------------------
+Atomic short range NN for element  O :
+Number of weights    :    850
+Number of biases     :     51
+Number of connections:    901
+Architecture        8   25   25    1
+-------------------------------------------------------------------------------
+   1   G   t   t   l
+   2   G   t   t    
+   3   G   t   t    
+   4   G   t   t    
+   5   G   t   t    
+   6   G   t   t    
+   7   G   t   t    
+   8   G   t   t    
+   9       t   t    
+  10       t   t    
+  11       t   t    
+  12       t   t    
+  13       t   t    
+  14       t   t    
+  15       t   t    
+  16       t   t    
+  17       t   t    
+  18       t   t    
+  19       t   t    
+  20       t   t    
+  21       t   t    
+  22       t   t    
+  23       t   t    
+  24       t   t    
+  25       t   t    
+-------------------------------------------------------------------------------
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTION SCALING ******************************************
+
+No scaling for symmetry functions.
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTION STATISTICS ***************************************
+
+Equal symmetry function statistics for all elements.
+Collect min/max/mean/sigma                        : 1
+Collect extrapolation warnings                    : 0
+Write extrapolation warnings immediately to stderr: 0
+Halt on any extrapolation warning                 : 0
+*******************************************************************************
+
+*** SETUP: RANDOM NUMBER GENERATOR ********************************************
+
+Random number generator seed: 2
+Seed for rank 0: 2
+Seed for global RNG: 1872583848
+*******************************************************************************
+
+*** STRUCTURE DISTRIBUTION ****************************************************
+
+Reading configurations from data file: input.data.
+Total number of structures: 1
+Number of structures per processor: 1
+Distributed 1 structures, 0 bytes (0.00 MiB) transferred.
+Number of local structures: 1
+*******************************************************************************
+
+*** CALCULATING SYMMETRY FUNCTIONS ********************************************
+
+Check the log files of all (!) MPI processes for warnings in this section!
+*******************************************************************************
+
+*** SYMMETRY FUNCTION SCALING *************************************************
+
+Writing symmetry function scaling file: scaling.data.
+*******************************************************************************
+
+*** NEIGHBOR HISTOGRAMS *******************************************************
+
+Minimum number of neighbors: 2
+Mean    number of neighbors: 2.0
+Maximum number of neighbors: 2
+Neighbor histogram file: neighbors.histo.
+*******************************************************************************
+
+*** SYMMETRY FUNCTION HISTOGRAMS **********************************************
+
+WARNING: Symmetry function min equals max, ommitting histogram (Element  H SF    0 (line   31).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  H SF    2 (line   32).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  H SF    4 (line   33).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  H SF    6 (line   34).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  H SF    9 (line   35).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  H SF   11 (line   36).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  H SF   13 (line   37).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  H SF   15 (line   38).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  O SF    0 (line   50).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  O SF    1 (line   51).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  O SF    2 (line   52).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  O SF    3 (line   53).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  O SF    4 (line   54).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  O SF    5 (line   55).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  O SF    6 (line   56).
+WARNING: Symmetry function min equals max, ommitting histogram (Element  O SF    7 (line   57).
+Writing histograms with 5 bins.

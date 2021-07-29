@@ -1,0 +1,2 @@
+cp ../../../bin/nnp-predictHighDerivativesFourth .
+./nnp-predictHighDerivativesFourth  1e-8

@@ -1,0 +1,3 @@
+nn="010000"
+cp weightsES.001.${nn}.out weightsES.001.data
+cp weightsES.008.${nn}.out weightsES.008.data

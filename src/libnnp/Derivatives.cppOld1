@@ -1,0 +1,539 @@
+// Abdul-Rahman Allouche 2020
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+#ifdef HIGH_DERIVATIVES
+
+#include "Derivatives.h"
+#include <cmath>
+#include <iostream>
+
+
+using namespace std;
+using namespace nnp;
+
+static void swap(int *a, int *b);
+static void permutation(int *arr, int start, int end, double val, double*** tab3);
+static void permutation(int *arr, int start, int end, double val, double**** tab4);
+static double* new1Dtable(int size);
+static double* copy1Dtable(int size, double* t);
+static void free1Dtable(double* t);
+static double** new2Dtable(int size);
+static double** copy2Dtable(int size, double** t);
+static void free2Dtable(int size, double**t);
+static double*** new3Dtable(int size);
+static double*** copy3Dtable(int size, double*** t);
+static void free3Dtable(int size, double***t);
+static double**** new4Dtable(int size);
+static double**** copy4Dtable(int size, double**** t);
+static void free4Dtable(int size, double****t);
+
+Derivatives::Derivatives()
+{
+	maxOrder = 0;
+	nVariables = 0;
+	value = 0;
+	df = NULL;
+	d2f = NULL;
+	d3f = NULL;
+	d4f = NULL;
+}
+void Derivatives::free()
+{
+	if(df) free1Dtable(df);
+	if(d2f) free2Dtable(nVariables, d2f);
+	if(d3f) free3Dtable(nVariables, d3f);
+	if(d4f) free4Dtable(nVariables, d4f);
+	maxOrder = 0;
+	nVariables = 0;
+	value = 0;
+	df = NULL;
+	d2f = NULL;
+	d3f = NULL;
+	d4f = NULL;
+}
+Derivatives::~Derivatives()
+{
+	free();
+}
+
+Derivatives::Derivatives(int mOrder, int nVar)
+{
+	maxOrder = mOrder;
+	nVariables = nVar;
+	value = 0;
+	df = NULL;
+	d2f = NULL;
+	d3f = NULL;
+	d4f = NULL;
+	if(nVariables<1) return;
+	if(maxOrder>0) df = new1Dtable(nVariables);
+	if(maxOrder>1) d2f = new2Dtable(nVariables);
+	if(maxOrder>2) d3f = new3Dtable(nVariables);
+	if(maxOrder>3) d4f = new4Dtable(nVariables);
+	if(maxOrder>4) throw std::invalid_argument("ERROR: Derivatives over 4 are not yet implemented Derivatives class.\n");
+}
+Derivatives::Derivatives(const Derivatives& right)
+{
+	maxOrder = right.maxOrder;
+	nVariables = right.nVariables;
+	value = right.value;
+	df = NULL;
+	d2f = NULL;
+	d3f = NULL;
+	d4f = NULL;
+	if(nVariables<1) return;
+	if(maxOrder>0) df = copy1Dtable(nVariables, right.df);
+	if(maxOrder>1) d2f = copy2Dtable(nVariables, right.d2f);
+	if(maxOrder>2) d3f = copy3Dtable(nVariables, right.d3f);
+	if(maxOrder>3) d4f = copy4Dtable(nVariables, right.d4f);
+	if(maxOrder>4) throw std::invalid_argument("ERROR: Derivatives over 4 are not yet implemented Derivatives class.\n");
+}
+/* size = number of variables 
+   first : vector if size elements
+
+   compute derivatives of a*f1+b*f2 using derivatives of f1 and those of f2 
+*/
+void Derivatives::computeSumFirst(double a, double b, const Derivatives & f2, Derivatives & fsum)
+{
+	for(int l=0;l<nVariables;l++) 
+		fsum.df[l] = a*df[l]+b*f2.df[l];
+}
+/* size = number of variables 
+   first : vector if size elements
+   second : matrix size*size 
+
+   compute derivatives of a*f1+b*f2 using derivatives of f1 and those of f2 
+*/
+void Derivatives::computeSumSecond(double a, double b, const Derivatives & f2, Derivatives & fsum)
+{
+	for(int l=0;l<nVariables;l++) 
+		for(int m=l;m<nVariables;m++) 
+			fsum.d2f[l][m] = fsum.d2f[m][l] = a*d2f[l][m] + b*f2.d2f[l][m];
+}
+/* size = number of variables 
+   first : vector if size elements
+   second : matrix size*size 
+   third : size*size*size
+
+   compute derivatives of a*f1+b*f2 using derivatives of f1 and those of f2 
+*/
+void Derivatives::computeSumThird(double a, double b, const Derivatives & f2, Derivatives & fsum)
+{
+	for(int l=0;l<nVariables;l++) 
+		for(int m=l;m<nVariables;m++) 
+			for(int n=m;n<nVariables;n++) 
+			{
+				double v = a*d3f[l][m][n] + b*f2.d3f[l][m][n];
+				int arr[] = {l,m,n};
+				permutation(arr, 0, 2, v, fsum.d3f);
+			}
+}
+/* nVariables = number of variables 
+   first : vector if nVariables elements
+   second : matrix nVariables*nVariables 
+   third : nVariables*nVariables*nVariables
+   fourth : nVariables*nVariables*nVariables
+
+   compute derivatives of a*f1+b*f2 using derivatives of f1 and those of f2 
+*/
+void Derivatives::computeSumFourth(double a, double b, const Derivatives & f2, Derivatives & fsum)
+{
+	for(int l=0;l<nVariables;l++) 
+		for(int m=l;m<nVariables;m++) 
+			for(int n=m;n<nVariables;n++) 
+				for(int k=n;k<nVariables;k++) 
+				{
+					double v = a*d4f[l][m][n][k] + b*f2.d4f[l][m][n][k];
+					int arr[] = {l,m,n,k};
+					permutation(arr, 0, 3, v, fsum.d4f);
+			}
+}
+void Derivatives::computeSum(double a, double b, const Derivatives & f2, Derivatives & fsum)
+{
+	if(nVariables != f2.nVariables || maxOrder != f2.maxOrder ) 
+		throw std::invalid_argument("ERROR: I cannnot add 2 Derivaritves  : f1 &f2 have not the sum number of variables in Derivatives class.\n");
+	
+	if(nVariables != fsum.nVariables || maxOrder != fsum.maxOrder ) 
+	{
+		fsum.free();
+		fsum = Derivatives(maxOrder, nVariables);
+	}
+	if(maxOrder>0) computeSumFirst( a,  b, f2, fsum);
+	if(maxOrder>1) computeSumSecond( a,  b, f2, fsum);
+	if(maxOrder>2) computeSumThird( a,  b, f2, fsum);
+	if(maxOrder>3) computeSumFourth( a,  b, f2, fsum);
+	fsum.value = value + f2.value;
+}
+void Derivatives::computeSum(const Derivatives & f2, Derivatives & fsum)
+{
+	computeSum(1.0, 1.0, f2, fsum);
+}
+Derivatives Derivatives::computeSum(double a, double b, const Derivatives & f2)
+{
+	if(nVariables != f2.nVariables || maxOrder != f2.maxOrder ) 
+		throw std::invalid_argument("ERROR: I cannnot add 2 Derivaritves  : f1 &f2 have not the sum number of variables in Derivatives class.\n");
+	
+	Derivatives fsum(maxOrder, nVariables);
+	computeSum(a, b, f2, fsum);
+	return fsum;
+}
+Derivatives Derivatives::computeSum(const Derivatives & f2)
+{
+	return computeSum(1.0,1.0,f2);
+}
+/* size = number of variables 
+   first : vector if size elements
+
+   compute derivatives of f1*f2 using derivatives of f1 and those of f2 
+*/
+void Derivatives::computeProdFirst(const Derivatives& f2, Derivatives& fprod)
+{
+	for(int l=0;l<nVariables;l++) 
+		fprod.df[l] = df[l]*f2.value+value*f2.df[l];
+}
+/* size = number of variables 
+   first : vector if size elements
+   second : matrix size*size 
+
+   compute derivatives of f1*f2 using derivatives of f1 and those of f2 
+*/
+void Derivatives::computeProdSecond(const Derivatives& f2, Derivatives& fprod)
+{
+	for(int l=0;l<nVariables;l++) 
+		for(int m=l;m<nVariables;m++) 
+			fprod.d2f[l][m] = fprod.d2f[m][l] = d2f[l][m]*f2.value + value*f2.d2f[l][m] + df[l]*f2.df[m]+df[m]*f2.df[l];
+}
+/* size = number of variables 
+   first : vector if size elements
+   second : matrix size*size 
+   third : size*size*size
+
+   compute derivatives of f1*f2 using derivatives of f1 and those of f2 
+*/
+void Derivatives::computeProdThird(const Derivatives& f2, Derivatives& fprod)
+{
+	for(int l=0;l<nVariables;l++) 
+		for(int m=l;m<nVariables;m++) 
+			for(int n=m;n<nVariables;n++) 
+			{
+				double v = 
+				  d3f[l][m][n] *f2.value + value*f2.d3f[l][m][n]
+				+ d2f[l][m]*f2.df[n]+ d2f[l][n]*f2.df[m]+ d2f[m][n]*f2.df[l]+
+				+ f2.d2f[l][m]*df[n]+ f2.d2f[l][n]*df[m]+ f2.d2f[m][n]*df[l];
+				int arr[] = {l,m,n};
+				permutation(arr, 0, 2, v, fprod.d3f);
+			}
+}
+/* size = number of variables 
+   first : vector if size elements
+   second : matrix size*size 
+   third : size*size*size
+   fourth : size*size*size
+
+   compute derivatives of f1*f2 using derivatives of f1 and those of f2 
+*/
+void Derivatives::computeProdFourth(const Derivatives& f2, Derivatives& fprod)
+{
+	for(int l=0;l<nVariables;l++) 
+		for(int m=l;m<nVariables;m++) 
+			for(int n=m;n<nVariables;n++) 
+				for(int k=n;k<nVariables;k++) 
+				{
+					double v = 
+				  	d4f[l][m][n][k] *f2.value + value*f2.d4f[l][m][n][k]
+					+ d3f[l][m][n]*f2.df[k]+ d3f[l][m][k]*f2.df[n]+ d3f[l][n][k]*f2.df[m] + d3f[m][n][k]*f2.df[l]
+					+ f2.d3f[l][m][n]*df[k]+ f2.d3f[l][m][k]*df[n]+ f2.d3f[l][n][k]*df[m] + f2.d3f[m][n][k]*df[l] 
+
+					+ d2f[l][m]*f2.d2f[n][k]+ d2f[l][n]*f2.d2f[m][k]+ d2f[l][k]*f2.d2f[m][n]
+					+ f2.d2f[l][m]*d2f[n][k]+ f2.d2f[l][n]*d2f[m][k]+ f2.d2f[l][k]*d2f[m][n];
+
+					int arr[] = {l,m,n,k};
+					permutation(arr, 0, 3, v, fprod.d4f);
+			}
+}
+void Derivatives::computeProd(const Derivatives& f2, Derivatives& fprod)
+{
+	if(nVariables != f2.nVariables || maxOrder != f2.maxOrder ) 
+		throw std::invalid_argument("ERROR: I cannnot do a prod of 2 Derivaritves  : f1 &f2 have not the sum number of variables in Derivatives class.\n");
+	
+	if(nVariables != fprod.nVariables || maxOrder != fprod.maxOrder ) 
+	{
+		fprod.free();
+		fprod = Derivatives(maxOrder, nVariables);
+	}
+	if(maxOrder>0) computeProdFirst(f2, fprod);
+	if(maxOrder>1) computeProdSecond(f2, fprod);
+	if(maxOrder>2) computeProdThird(f2, fprod);
+	if(maxOrder>3) computeProdFourth(f2, fprod);
+	fprod.value = value * f2.value;
+}
+Derivatives Derivatives::computeProd(const Derivatives& f2)
+{
+	 if(nVariables != f2.nVariables || maxOrder != f2.maxOrder )
+		throw std::invalid_argument("ERROR: I cannnot do a prod of 2 Derivaritves  : f1 &f2 have not the sum number of variables in Derivatives class.\n");
+
+        Derivatives fprod(maxOrder, nVariables);
+        computeProd(f2, fprod);
+	return fprod;
+
+}
+/*
+   compute derivatives of f1*f2*f3 using derivatives of f1, f2 and those of f3
+*/
+void Derivatives::computeProd(const Derivatives& f2, const Derivatives& f3, Derivatives& fprod)
+{
+	Derivatives fprod12  = computeProd(f2);
+	fprod  = fprod12.computeProd(f3);
+}
+Derivatives Derivatives::computeProd(const Derivatives& f2, const Derivatives& f3)
+{
+	Derivatives fprod12  = computeProd(f2);
+	Derivatives fprod123  = fprod12.computeProd(f3);
+	return fprod123;
+}
+/* 
+  compute derivatives of f(u), using df/du (dnf) and du/dxi (nVariables variable)
+   dnf[0] = f(u)
+   dnf[1] = df(u)/du
+   dnf[n] = dnf(u)/du^n
+*/
+void Derivatives::computedfu(const double* dnf, const Derivatives& u)
+{
+	for(int l=0;l<nVariables;l++) 
+		df[l] = dnf[1]*u.df[l];
+}
+void Derivatives::computed2fu(const double* dnf, const Derivatives& u)
+{
+        for(int l=0;l<nVariables;l++)
+        	for(int m=l;m<nVariables;m++)
+			d2f[l][m] = d2f[m][l] = u.df[l]*u.df[m]*dnf[2] + u.d2f[l][m]*dnf[1];
+}
+void Derivatives::computed3fu(const double* dnf, const Derivatives& u)
+{
+        for(int l=0;l<nVariables;l++)
+        	for(int m=l;m<nVariables;m++)   
+        		for(int n=m;n<nVariables;n++)   
+			{
+				double v = 
+					  dnf[3]*(
+						u.df[l]*u.df[m]*u.df[n]
+						)
+					+ dnf[2]*(
+						u.d2f[l][m]*u.df[n] +
+						u.d2f[l][n]*u.df[m] +
+						u.d2f[m][n]*u.df[l] 
+						)
+					+ dnf[1]*(
+						u.d3f[l][m][n]
+						);
+			 	int arr[] = {l,m,n};
+                                permutation(arr, 0, 2, v, d3f);
+			}
+}
+void Derivatives::computed4fu(const double* dnf, const Derivatives& u)
+{
+	for(int l=0;l<nVariables;l++) 
+		for(int m=l;m<nVariables;m++) 
+			for(int n=m;n<nVariables;n++) 
+				for(int k=n;k<nVariables;k++) 
+				{
+					double v = 
+				  	  dnf[4]*(u.df[l]*u.df[m]*u.df[n]*u.df[k])
+					+ dnf[3]*(
+					u.d2f[l][m]*u.df[n]*u.df[k]+ 
+					u.d2f[l][n]*u.df[m]*u.df[k]+
+					u.d2f[l][k]*u.df[m]*u.df[n]+
+					u.d2f[m][n]*u.df[l]*u.df[k]+
+					u.d2f[m][k]*u.df[l]*u.df[n]+
+					u.d2f[n][k]*u.df[l]*u.df[m]
+					)
+					+ dnf[2]*(
+					u.d3f[l][m][n]*u.df[k]+
+					u.d3f[l][m][k]*u.df[n]+
+					u.d3f[l][n][k]*u.df[m]+
+					u.d3f[m][n][k]*u.df[l]+
+					u.d2f[l][m]*u.d2f[n][k]+
+					u.d2f[l][n]*u.d2f[m][k]+
+					u.d2f[l][k]*u.d2f[m][n]
+					)
+					+ dnf[1]*(u.d4f[l][m][n][k]);
+
+					int arr[] = {l,m,n,k};
+					permutation(arr, 0, 3, v, d4f);
+			}
+}
+void Derivatives::computednfu(const double* dnf, const Derivatives& u)
+{
+	if(nVariables != u.nVariables || maxOrder != u.maxOrder ) 
+	{
+		free();
+		*this = Derivatives(maxOrder, nVariables);
+	}
+	if(maxOrder>0) computedfu(dnf, u);
+	if(maxOrder>1) computed2fu(dnf, u);
+	if(maxOrder>2) computed3fu(dnf, u);
+	if(maxOrder>3) computed4fu(dnf, u);
+	value = dnf[0];
+}
+
+static void swap(int *a, int *b)
+{
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+//permutation function
+static void permutation(int *arr, int start, int end, double val, double*** tab3)
+{
+    if(start==end)
+    {
+	tab3[arr[0]][arr[1]][arr[2]] = val;
+        return;
+    }
+    for(int i=start;i<=end;i++)
+    {
+        //swapping numbers
+        swap((arr+i), (arr+start));
+        //fixing one first digit
+        //and calling permutation on
+        //the rest of the digits
+        permutation(arr, start+1, end, val, tab3);
+        swap((arr+i), (arr+start));
+    }
+}
+//permutation function
+static void permutation(int *arr, int start, int end, double val, double**** tab4)
+{
+    if(start==end)
+    {
+	tab4[arr[0]][arr[1]][arr[2]][arr[3]] = val;
+        return;
+    }
+    for(int i=start;i<=end;i++)
+    {
+        //swapping numbers
+        swap((arr+i), (arr+start));
+        //fixing one first digit
+        //and calling permutation on
+        //the rest of the digits
+        permutation(arr, start+1, end, val, tab4);
+        swap((arr+i), (arr+start));
+    }
+}
+static double* new1Dtable(int size)
+{
+	double* t = new double[size];
+	return t;
+}
+static double* copy1Dtable(int size, double *tc)
+{
+	double* t = new1Dtable(size);
+    	for (int i = 0; i < size; i++) t[i]  = tc[i];
+	return t;
+}
+static void free1Dtable(double* t)
+{
+	delete[] t;
+}
+static double** new2Dtable(int size)
+{
+    double** t = new double*[size];
+    for (int l = 0; l < size; l++) t[l]  = new double[size];
+    return t;
+}
+static double** copy2Dtable(int size, double **tc)
+{
+	double** t = new2Dtable(size);
+    	for (int i = 0; i < size; i++) 
+    	for (int j = 0; j < size; j++) 
+		t[i][j]  = tc[i][j];
+	return t;
+}
+static void free2Dtable(int size, double** t)
+{
+    for (int l = 0; l < size; l++) delete[] t[l];
+    delete[] t;
+}
+static double*** new3Dtable(int size)
+{
+    double*** t = new double**[size];
+    for (int l = 0; l < size; l++) 
+		t[l] = new double*[size];
+
+    for (int l = 0; l < size; l++) 
+    	for (int m = 0; m < size; m++) 
+		t[l][m] = new double[size];
+    return t;
+}
+static double*** copy3Dtable(int size, double ***tc)
+{
+	double*** t = new3Dtable(size);
+    	for (int i = 0; i < size; i++) 
+    	for (int j = 0; j < size; j++) 
+    	for (int k = 0; k < size; k++) 
+		t[i][j][k]  = tc[i][j][k];
+	return t;
+}
+static void free3Dtable(int size, double*** t)
+{
+    for (int l = 0; l < size; l++) 
+    	for (int m = 0; m < size; m++) 
+		delete [] t[l][m];
+    for (int l = 0; l < size; l++) delete[] t[l];
+    delete[] t;
+}
+static double**** new4Dtable(int size)
+{
+    double**** t = new double***[size];
+    for (int l = 0; l < size; l++) 
+		t[l] = new double**[size];
+
+    for (int l = 0; l < size; l++) 
+    	for (int m = 0; m < size; m++) 
+		t[l][m] = new double*[size];
+
+    for (int l = 0; l < size; l++) 
+    	for (int m = 0; m < size; m++) 
+    		for (int n = 0; n < size; n++) 
+		t[l][m][n] = new double[size];
+    return t;
+}
+static double**** copy4Dtable(int size, double ****tc)
+{
+	double**** t = new4Dtable(size);
+    	for (int i = 0; i < size; i++) 
+    	for (int j = 0; j < size; j++) 
+    	for (int k = 0; k < size; k++) 
+    	for (int l = 0; l < size; l++) 
+		t[i][j][k][l]  = tc[i][j][k][l];
+	return t;
+}
+static void free4Dtable(int size, double**** t)
+{
+    for (int l = 0; l < size; l++) 
+    	for (int m = 0; m < size; m++) 
+    		for (int n = 0; n < size; n++) 
+		delete [] t[l][m][n];
+
+    for (int l = 0; l < size; l++) 
+    	for (int m = 0; m < size; m++) 
+		delete [] t[l][m];
+
+    for (int l = 0; l < size; l++) delete[] t[l];
+    delete[] t;
+}
+
+#endif /* HIGH_DERIVATIVES*/

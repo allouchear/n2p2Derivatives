@@ -1,0 +1,14 @@
+cd ../..
+source env.sh
+cd -
+make
+cd ../application
+rm nnp-predictHighDerivativesDipole
+make
+cd -
+
+cd ../../examples/nnp-predictES/H2O
+#cd ../../examples/nnp-predictES/H2O_RPBE-D3
+
+../../../bin/nnp-predictHighDerivativesDipole  1e-8 0
+#../../../bin/nnp-predictHighDerivativesDipole  1e-8 2

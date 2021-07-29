@@ -1,0 +1,111 @@
+#!/bin/bash
+
+rm a*.com
+awk -v xname=$0 '
+BEGIN{
+  d=0.2
+  cs="0 1"
+  method=sprintf("\# B2PLYP/def2tzvpp nosym scf(tight) force Pop=NPA");
+
+  if(ARGC<=1) { printf("Syntax: \n %s  fileName.xyz\n",xname); ex=1;exit}
+    
+  # Read nAtoms -----------  
+  getline; nAtoms=$0
+
+  getline; cs=$0 
+  for(k=1;k<=nAtoms;k++){
+      getline
+      symb[k] = $1
+      x[k]=$2; y[k]=$3; z[k]=$4;     
+    }
+  }
+{
+}
+END{
+    fn=sprintf("a0.com")
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("apx%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    x[i] =x[i]+d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    x[i] =x[i]-d;
+   }
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("amx%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    x[i] =x[i]-d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    x[i] =x[i]+d;
+  }
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("apy%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    y[i] =y[i]+d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    y[i] =y[i]-d;
+  }
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("amy%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    y[i] =y[i]-d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    y[i] =y[i]+d;
+  }
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("apz%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    z[i] =z[i]+d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    z[i] =z[i]-d;
+  }
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("amz%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    z[i] =z[i]-d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    z[i] =z[i]+d;
+  }
+     nType=1;
+     type[nType] = symb[1]
+    for(k=2;k<=nAtoms;k++) 
+    {
+       for(i=1;i<=nType;i++) 
+	if( type[i]==symb[k]) { break;}
+        if(i==nType+1)
+        {
+           nType++;
+          type[nType] = symb[k]
+        }
+    }
+       for(i=1;i<=nType;i++) 
+          {
+if(type[i] ~ /H/) m=2;
+if(type[i] ~ /C/) m=1;
+if(type[i] ~ /O/) m=3;
+if(type[i] ~ /P/) m=3;
+if(type[i] ~ /S/) m=3;
+if(type[i] ~ /Al/) m=2;
+if(type[i] ~ /AL/) m=2;
+if(type[i] ~ /Cd/) m=2;
+    fn=sprintf("b_%s.com", type[i])
+    printf("%s\n\nxPert\n\n0 %s\n",method,m) > fn
+    printf("%s 0.0 0.0 0.0\n",type[i]) > fn
+    printf("\n") > fn
+          }
+  }
+' $1
+echo see a*.com
+echo CHECK charge and multiplicity on b_*.com
+ls a*com > xp
+sed -i 's/a/runG09DC a/' xp
+chmod u+x xp
+echo see xp

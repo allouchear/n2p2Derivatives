@@ -1,0 +1,9 @@
+#cd ../../examples/nnp-predict/H2O_2DerivativesRadWideNarrow/
+#cd ../../examples/nnp-predict/H2O_2DerivativesRadNarrow/
+#cd ../../examples/nnp-predict/H2O_2DerivativesRadWide/
+#cd ../../examples/nnp-predict/H2O_2DerivativesRadialNorm/
+#cd ../../examples/nnp-predict/H2O_2DerivativesRadial/
+#cd ../../examples/nnp-predict/H2O_2DerivativesWRadial/
+cd ../../examples/nnp-predict/H2O_2DerivativesWRadialAngular/
+./xrun
+

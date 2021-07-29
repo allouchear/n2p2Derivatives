@@ -1,0 +1,3 @@
+#!/bin/bash 
+source /home/allouche/MySoftwares/MyMLSoftDerivatives/n2p2Mod2Derivatives/env.sh
+/home/allouche/MySoftwares/MyMLSoftDerivatives/n2p2Mod2Derivatives/bin/nnp-train

@@ -1,0 +1,45 @@
+###############################################################################
+# GENERAL NNP SETTINGS
+###############################################################################
+# These keywords are (almost) always required.
+number_of_elements              1              # Number of elements.
+elements                        Ne             # Specification of elements.
+#atom_energy                     Ne 0.0         # Free atom reference energy (Ne).
+cutoff_type                     2              # Cutoff type (optional argument: shift parameter alpha).
+scale_symmetry_functions                       # Scale all symmetry functions with min/max values.
+#scale_symmetry_functions_sigma                 # Scale all symmetry functions with sigma.
+scale_min_short                 0.0            # Minimum value for scaling.
+scale_max_short                 1.0            # Maximum value for scaling.
+center_symmetry_functions                      # Center all symmetry functions, i.e. subtract mean value.
+global_hidden_layers_short      1              # Number of hidden layers.
+global_nodes_short              3              # Number of nodes in each hidden layer.
+global_activation_short         t l            # Activation function for each hidden layer and output layer.
+#normalize_nodes                                # Normalize input of nodes.
+
+###############################################################################
+# ADDITIONAL SETTINGS FOR DATASET TOOLS
+###############################################################################
+# These keywords are used only by some tools handling data sets:
+# nnp-comp2, nnp-scaling, nnp-dataset, nnp-train.
+use_short_forces                               # Use forces.
+random_seed                     1234567        # Random number generator seed.
+
+###############################################################################
+# SYMMETRY FUNCTIONS
+###############################################################################
+
+# Radial symmetry function (type 2):
+#symfunction_short <element-central> 2 <element-neighbor> <eta> <rshift> <rcutoff>
+
+# Narrow Angular symmetry function (type 3):
+#symfunction_short <element-central> 3 <element-neighbor1> <element-neighbor2> <eta> <lambda> <zeta> <rcutoff> <<rshift>
+
+# Wide Angular symmetry function (type 9):
+#symfunction_short <element-central> 9 <element-neighbor1> <element-neighbor2> <eta> <lambda> <zeta> <rcutoff> <<rshift>
+
+# radial Ne Ne
+symfunction_short Ne 2 Ne 1.000 0.00 3.00
+symfunction_short Ne 2 Ne 1.000 0.25 3.00
+symfunction_short Ne 2 Ne 1.000 0.50 3.00
+symfunction_short Ne 2 Ne 1.000 0.75 3.00
+symfunction_short Ne 2 Ne 1.000 1.00 3.00

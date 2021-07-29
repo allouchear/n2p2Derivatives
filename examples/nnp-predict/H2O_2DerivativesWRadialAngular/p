@@ -1,0 +1,802 @@
+
+*******************************************************************************
+
+   NNP LIBRARY v2.0.0
+   ------------------
+
+Git branch  : 
+Git revision:  ()
+
+Number of OpenMP threads: 8
+*******************************************************************************
+
+*** SETUP: SETTINGS FILE ******************************************************
+
+Settings file name: input.nn
+Read 155 lines.
+Found 84 lines with keywords.
+*******************************************************************************
+
+*** SETUP: NORMALIZATION ******************************************************
+
+Data set normalization is used.
+Mean energy per atom     :  -2.5465742364640001E+01
+Conversion factor energy :   7.5812618735947069E+02
+Conversion factor length :   2.3190257282535811E+01
+Conversion factor dipole :   1.0000000000000000E+00
+
+Atomic energy offsets are used in addition to data set normalization.
+Offsets will be subtracted from reference energies BEFORE normalization is applied.
+*******************************************************************************
+
+*** SETUP: ELEMENT MAP ********************************************************
+
+Number of element strings found: 2
+Element  0:  H (  1)
+Element  1:  O (  8)
+*******************************************************************************
+
+*** SETUP: ELEMENTS ***********************************************************
+
+Number of elements is consistent: 2
+Atomic energy offsets per element:
+Element  0:  -5.00272784E-01
+Element  1:  -7.50655446E+01
+Energy offsets are automatically subtracted from reference energies.
+*******************************************************************************
+
+*** SETUP: CUTOFF FUNCTIONS ***************************************************
+
+Parameter alpha for inner cutoff: 0.000000
+Inner cutoff = Symmetry function cutoff * alpha
+Equal cutoff function type for all symmetry functions:
+CutoffFunction::CT_TANHU (2)
+f(r) = tanh^3(1 - r/rc)
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTIONS *************************************************
+
+Abbreviations:
+--------------
+ind .... Symmetry function index.
+ec ..... Central atom element.
+ty ..... Symmetry function type.
+e1 ..... Neighbor 1 element.
+e2 ..... Neighbor 2 element.
+eta .... Gaussian width eta.
+rs ..... Shift distance of Gaussian.
+la ..... Angle prefactor lambda.
+zeta ... Angle term exponent zeta.
+rc ..... Cutoff radius.
+ct ..... Cutoff type.
+ca ..... Cutoff alpha.
+ln ..... Line number in settings file.
+
+Short range atomic symmetry functions element  H :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln
+-------------------------------------------------------------------------------
+   1  H 12       1.000E-03 0.000E+00         1.200E+01  2 0.00   117
+   2  H 12       1.000E-02 0.000E+00         1.200E+01  2 0.00   118
+   3  H 12       3.000E-02 0.000E+00         1.200E+01  2 0.00   119
+   4  H 12       6.000E-02 0.000E+00         1.200E+01  2 0.00   120
+   5  H 12       1.500E-01 1.900E+00         1.200E+01  2 0.00   121
+   6  H 12       3.000E-01 1.900E+00         1.200E+01  2 0.00   122
+   7  H 12       6.000E-01 1.900E+00         1.200E+01  2 0.00   123
+   8  H 12       1.500E+00 1.900E+00         1.200E+01  2 0.00   124
+   9  H 13       1.000E-02 0.000E+00 -1  4.0 1.200E+01  2 0.00   153
+  10  H 13       1.000E-02 0.000E+00  1  4.0 1.200E+01  2 0.00   151
+  11  H 13       3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   148
+  12  H 13       3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   146
+  13  H 13       7.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   143
+  14  H 13       7.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   141
+  15  H 13       2.000E-01 0.000E+00  1  1.0 1.200E+01  2 0.00   138
+-------------------------------------------------------------------------------
+Short range atomic symmetry functions element  O :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln
+-------------------------------------------------------------------------------
+   1  O 12       1.000E-03 0.000E+00         1.200E+01  2 0.00   126
+   2  O 12       1.000E-02 0.000E+00         1.200E+01  2 0.00   127
+   3  O 12       3.000E-02 0.000E+00         1.200E+01  2 0.00   128
+   4  O 12       6.000E-02 0.000E+00         1.200E+01  2 0.00   129
+   5  O 12       1.500E-01 9.000E-01         1.200E+01  2 0.00   130
+   6  O 12       3.000E-01 9.000E-01         1.200E+01  2 0.00   131
+   7  O 12       6.000E-01 9.000E-01         1.200E+01  2 0.00   132
+   8  O 12       1.500E+00 9.000E-01         1.200E+01  2 0.00   133
+   9  O 13       1.000E-02 0.000E+00 -1  4.0 1.200E+01  2 0.00   152
+  10  O 13       1.000E-02 0.000E+00  1  4.0 1.200E+01  2 0.00   150
+  11  O 13       3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   147
+  12  O 13       3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   145
+  13  O 13       7.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   142
+  14  O 13       7.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   140
+-------------------------------------------------------------------------------
+Minimum cutoff radius for element  H: 12.000000
+Minimum cutoff radius for element  O: 12.000000
+Maximum cutoff radius (global)      : 12.000000
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTION GROUPS *******************************************
+
+Abbreviations:
+--------------
+ind .... Symmetry function group index.
+ec ..... Central atom element.
+ty ..... Symmetry function type.
+e1 ..... Neighbor 1 element.
+e2 ..... Neighbor 2 element.
+eta .... Gaussian width eta.
+rs ..... Shift distance of Gaussian.
+la ..... Angle prefactor lambda.
+zeta ... Angle term exponent zeta.
+rc ..... Cutoff radius.
+ct ..... Cutoff type.
+ca ..... Cutoff alpha.
+ln ..... Line number in settings file.
+mi ..... Member index.
+sfi .... Symmetry function index.
+e ...... Recalculate exponential term.
+
+Short range atomic symmetry function groups element  H :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln   mi  sfi e
+-------------------------------------------------------------------------------
+   1  H 12               *         *         1.200E+01  2 0.00     *    *    *  
+   -  -  -       1.000E-03 0.000E+00                 -  -    -   116    1    1  
+   -  -  -       1.000E-02 0.000E+00                 -  -    -   117    2    2  
+   -  -  -       3.000E-02 0.000E+00                 -  -    -   118    3    3  
+   -  -  -       6.000E-02 0.000E+00                 -  -    -   119    4    4  
+   -  -  -       1.500E-01 1.900E+00                 -  -    -   120    5    5  
+   -  -  -       3.000E-01 1.900E+00                 -  -    -   121    6    6  
+   -  -  -       6.000E-01 1.900E+00                 -  -    -   122    7    7  
+   -  -  -       1.500E+00 1.900E+00                 -  -    -   123    8    8  
+   2  H 13               *         *  *    * 1.200E+01  2 0.00     *    *    * *
+   -  -  -       1.000E-02 0.000E+00 -1  4.0         -  -    -   152    1    9 1
+   -  -  -       1.000E-02 0.000E+00  1  4.0         -  -    -   150    2   10 0
+   -  -  -       3.000E-02 0.000E+00 -1  1.0         -  -    -   147    3   11 1
+   -  -  -       3.000E-02 0.000E+00  1  1.0         -  -    -   145    4   12 0
+   -  -  -       7.000E-02 0.000E+00 -1  1.0         -  -    -   142    5   13 1
+   -  -  -       7.000E-02 0.000E+00  1  1.0         -  -    -   140    6   14 0
+   -  -  -       2.000E-01 0.000E+00  1  1.0         -  -    -   137    7   15 1
+-------------------------------------------------------------------------------
+Short range atomic symmetry function groups element  O :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln   mi  sfi e
+-------------------------------------------------------------------------------
+   1  O 12               *         *         1.200E+01  2 0.00     *    *    *  
+   -  -  -       1.000E-03 0.000E+00                 -  -    -   125    1    1  
+   -  -  -       1.000E-02 0.000E+00                 -  -    -   126    2    2  
+   -  -  -       3.000E-02 0.000E+00                 -  -    -   127    3    3  
+   -  -  -       6.000E-02 0.000E+00                 -  -    -   128    4    4  
+   -  -  -       1.500E-01 9.000E-01                 -  -    -   129    5    5  
+   -  -  -       3.000E-01 9.000E-01                 -  -    -   130    6    6  
+   -  -  -       6.000E-01 9.000E-01                 -  -    -   131    7    7  
+   -  -  -       1.500E+00 9.000E-01                 -  -    -   132    8    8  
+   2  O 13               *         *  *    * 1.200E+01  2 0.00     *    *    * *
+   -  -  -       1.000E-02 0.000E+00 -1  4.0         -  -    -   151    1    9 1
+   -  -  -       1.000E-02 0.000E+00  1  4.0         -  -    -   149    2   10 0
+   -  -  -       3.000E-02 0.000E+00 -1  1.0         -  -    -   146    3   11 1
+   -  -  -       3.000E-02 0.000E+00  1  1.0         -  -    -   144    4   12 0
+   -  -  -       7.000E-02 0.000E+00 -1  1.0         -  -    -   141    5   13 1
+   -  -  -       7.000E-02 0.000E+00  1  1.0         -  -    -   139    6   14 0
+-------------------------------------------------------------------------------
+*******************************************************************************
+
+*** SETUP: NEURAL NETWORKS ****************************************************
+
+Normalize neurons (all elements): 0
+-------------------------------------------------------------------------------
+Atomic short range NN for element  H :
+Number of weights    :    465
+Number of biases     :     31
+Number of connections:    496
+Architecture       15   15   15    1
+-------------------------------------------------------------------------------
+   1   G   c   c   l
+   2   G   c   c    
+   3   G   c   c    
+   4   G   c   c    
+   5   G   c   c    
+   6   G   c   c    
+   7   G   c   c    
+   8   G   c   c    
+   9   G   c   c    
+  10   G   c   c    
+  11   G   c   c    
+  12   G   c   c    
+  13   G   c   c    
+  14   G   c   c    
+  15   G   c   c    
+-------------------------------------------------------------------------------
+Atomic short range NN for element  O :
+Number of weights    :    450
+Number of biases     :     31
+Number of connections:    481
+Architecture       14   15   15    1
+-------------------------------------------------------------------------------
+   1   G   c   c   l
+   2   G   c   c    
+   3   G   c   c    
+   4   G   c   c    
+   5   G   c   c    
+   6   G   c   c    
+   7   G   c   c    
+   8   G   c   c    
+   9   G   c   c    
+  10   G   c   c    
+  11   G   c   c    
+  12   G   c   c    
+  13   G   c   c    
+  14   G   c   c    
+  15       c   c    
+-------------------------------------------------------------------------------
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTION SCALING ******************************************
+
+Equal scaling type for all symmetry functions:
+Scaling type::ST_SCALECENTER (3)
+Gs = Smin + (Smax - Smin) * (G - Gmean) / (Gmax - Gmin)
+Smin = 0.000000
+Smax = 1.000000
+Symmetry function scaling statistics from file: scaling.data
+-------------------------------------------------------------------------------
+
+Abbreviations:
+--------------
+ind ..... Symmetry function index.
+min ..... Minimum symmetry function value.
+max ..... Maximum symmetry function value.
+mean .... Mean symmetry function value.
+sigma ... Standard deviation of symmetry function values.
+sf ...... Scaling factor for derivatives.
+Smin .... Desired minimum scaled symmetry function value.
+Smax .... Desired maximum scaled symmetry function value.
+t ....... Scaling type.
+
+Scaling data for symmetry functions element  H :
+-------------------------------------------------------------------------------
+ ind       min       max      mean     sigma        sf  Smin  Smax t
+-------------------------------------------------------------------------------
+   1  2.77E+00  2.95E+00  2.86E+00  4.65E-02  5.55E+00  0.00  1.00 3
+   2  2.66E+00  2.86E+00  2.76E+00  5.27E-02  4.90E+00  0.00  1.00 3
+   3  2.43E+00  2.68E+00  2.56E+00  6.50E-02  3.98E+00  0.00  1.00 3
+   4  2.13E+00  2.43E+00  2.28E+00  7.98E-02  3.27E+00  0.00  1.00 3
+   5  2.72E+00  2.91E+00  2.82E+00  4.49E-02  5.37E+00  0.00  1.00 3
+   6  2.68E+00  2.86E+00  2.78E+00  4.36E-02  5.36E+00  0.00  1.00 3
+   7  2.61E+00  2.78E+00  2.72E+00  4.04E-02  5.86E+00  0.00  1.00 3
+   8  2.52E+00  2.68E+00  2.62E+00  3.98E-02  6.38E+00  0.00  1.00 3
+   9  7.19E-06  5.81E-05  2.66E-05  1.51E-05  1.96E+04  0.00  1.00 3
+  10  2.18E-01  2.97E-01  2.56E-01  1.91E-02  1.27E+01  0.00  1.00 3
+  11  1.77E-02  3.31E-02  2.42E-02  3.75E-03  6.49E+01  0.00  1.00 3
+  12  2.17E-01  2.78E-01  2.46E-01  1.60E-02  1.62E+01  0.00  1.00 3
+  13  8.73E-03  1.87E-02  1.28E-02  2.21E-03  1.00E+02  0.00  1.00 3
+  14  1.07E-01  1.57E-01  1.30E-01  1.27E-02  1.98E+01  0.00  1.00 3
+  15  1.06E-02  2.45E-02  1.66E-02  3.44E-03  7.21E+01  0.00  1.00 3
+-------------------------------------------------------------------------------
+Scaling data for symmetry functions element  O :
+-------------------------------------------------------------------------------
+ ind       min       max      mean     sigma        sf  Smin  Smax t
+-------------------------------------------------------------------------------
+   1  6.38E-01  6.65E-01  6.52E-01  7.21E-03  3.68E+01  0.00  1.00 3
+   2  6.17E-01  6.47E-01  6.33E-01  8.19E-03  3.24E+01  0.00  1.00 3
+   3  5.71E-01  6.09E-01  5.91E-01  1.01E-02  2.62E+01  0.00  1.00 3
+   4  5.09E-01  5.56E-01  5.34E-01  1.25E-02  2.12E+01  0.00  1.00 3
+   5  5.42E-01  6.00E-01  5.73E-01  1.54E-02  1.72E+01  0.00  1.00 3
+   6  4.58E-01  5.40E-01  5.01E-01  2.15E-02  1.23E+01  0.00  1.00 3
+   7  3.28E-01  4.37E-01  3.84E-01  2.87E-02  9.22E+00  0.00  1.00 3
+   8  1.20E-01  2.31E-01  1.76E-01  2.97E-02  9.04E+00  0.00  1.00 3
+   9  5.66E-03  1.58E-02  9.83E-03  2.17E-03  9.83E+01  0.00  1.00 3
+  10  1.75E-04  1.15E-03  5.50E-04  2.31E-04  1.03E+03  0.00  1.00 3
+  11  1.89E-02  2.71E-02  2.28E-02  1.93E-03  1.21E+02  0.00  1.00 3
+  12  8.80E-03  1.36E-02  1.10E-02  1.35E-03  2.09E+02  0.00  1.00 3
+  13  9.64E-03  1.48E-02  1.21E-02  1.36E-03  1.95E+02  0.00  1.00 3
+  14  4.39E-03  7.67E-03  5.80E-03  8.42E-04  3.05E+02  0.00  1.00 3
+-------------------------------------------------------------------------------
+*******************************************************************************
+
+*** SETUP: NEURAL NETWORK WEIGHTS *********************************************
+
+Weight file name format: weights.%03zu.data
+Weight file for element  H: weights.001.data
+Weight file for element  O: weights.008.data
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTION STATISTICS ***************************************
+
+Equal symmetry function statistics for all elements.
+Collect min/max/mean/sigma                        : 0
+Collect extrapolation warnings                    : 0
+Write extrapolation warnings immediately to stderr: 1
+Halt on any extrapolation warning                 : 0
+*******************************************************************************
+
+*** PREDICTION ****************************************************************
+
+Reading structure file...
+Structure contains 3 atoms (2 elements).
+Calculating NNP prediction...
+Call calculateSymmetryFunctionGroups
+
+
+-------------------------------------------------------------------------------
+NNP energy:  -1.52466647E+02
+
+NNP forces:
+         1  O  -5.06511221E-02  -4.48664832E-02   2.30878388E-03
+         2  H   1.16917293E-02   5.65582125E-02  -3.26210778E-02
+         3  H   3.89593929E-02  -1.16917293E-02   3.03122939E-02
+-------------------------------------------------------------------------------
+
+NNP 2 derivatives:
+Call structure.calculateNeighborList
+
+Call calculateAtomicNeuralNetworks
+
+Call calculateEnergy
+
+Call calculateForces
+
+Call compute2Derivatives(structure)
+
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =1
+d1F = -0.00273111
+d2F = 1.04063e-06
+Atom neighbors = 1 index =2
+d1F = -0.00273306
+d2F = 6.26506e-07
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =1
+d1F = -0.00310149
+d2F = -1.36166e-06
+Atom neighbors = 1 index =2
+d1F = -0.00309704
+d2F = -2.446e-06
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =1
+d1F = -0.00383761
+d2F = -1.86645e-06
+Atom neighbors = 1 index =2
+d1F = -0.00382993
+d2F = -4.70768e-06
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =1
+d1F = -0.00473918
+d2F = 7.62131e-06
+Atom neighbors = 1 index =2
+d1F = -0.00475026
+d2F = 1.81744e-06
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =1
+d1F = -0.0058462
+d2F = -5.87229e-05
+Atom neighbors = 1 index =2
+d1F = -0.00568604
+d2F = -7.82427e-05
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =1
+d1F = -0.008175
+d2F = -2.93516e-05
+Atom neighbors = 1 index =2
+d1F = -0.00805033
+d2F = -7.76552e-05
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =1
+d1F = -0.0109496
+d2F = 0.000182618
+Atom neighbors = 1 index =2
+d1F = -0.0112608
+d2F = 8.049e-05
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =1
+d1F = -0.0112497
+d2F = 0.000975535
+Atom neighbors = 1 index =2
+d1F = -0.0134939
+d2F = 0.000926184
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00273111
+d2F = 1.04063e-06
+Atom neighbors = 1 index =2
+d1F = -0.00271921
+d2F = 2.32194e-06
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00310149
+d2F = -1.36166e-06
+Atom neighbors = 1 index =2
+d1F = -0.00309958
+d2F = 1.88817e-06
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00383761
+d2F = -1.86645e-06
+Atom neighbors = 1 index =2
+d1F = -0.00382123
+d2F = 6.37892e-06
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00473918
+d2F = 7.62131e-06
+Atom neighbors = 1 index =2
+d1F = -0.00462669
+d2F = 2.3673e-05
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.0024419
+d2F = -0.000184996
+Atom neighbors = 1 index =2
+d1F = -0.00363044
+d2F = -0.000147844
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00219566
+d2F = -0.000370837
+Atom neighbors = 1 index =2
+d1F = -0.00456844
+d2F = -0.000289172
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00170392
+d2F = -0.000740859
+Atom neighbors = 1 index =2
+d1F = -0.00639209
+d2F = -0.000545682
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.000234633
+d2F = -0.00183769
+Atom neighbors = 1 index =2
+d1F = -0.0114612
+d2F = -0.00112044
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 2
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00273306
+d2F = 6.26506e-07
+Atom neighbors = 1 index =1
+d1F = -0.00271921
+d2F = 2.32194e-06
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00309704
+d2F = -2.446e-06
+Atom neighbors = 1 index =1
+d1F = -0.00309958
+d2F = 1.88817e-06
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00382993
+d2F = -4.70768e-06
+Atom neighbors = 1 index =1
+d1F = -0.00382123
+d2F = 6.37892e-06
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00475026
+d2F = 1.81744e-06
+Atom neighbors = 1 index =1
+d1F = -0.00462669
+d2F = 2.3673e-05
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00199827
+d2F = -0.000194013
+Atom neighbors = 1 index =1
+d1F = -0.00363044
+d2F = -0.000147844
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = -0.00131049
+d2F = -0.000384814
+Atom neighbors = 1 index =1
+d1F = -0.00456844
+d2F = -0.000289172
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = 4.96155e-05
+d2F = -0.000753774
+Atom neighbors = 1 index =1
+d1F = -0.00639209
+d2F = -0.000545682
+In SymmetryFunctionRadial::compute2Derivatives size 9
+Atom neighbors = 0 index =0
+d1F = 0.00400834
+d2F = -0.00176235
+Atom neighbors = 1 index =1
+d1F = -0.0114612
+d2F = -0.00112044
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+In SymmetryFunctionAngularNarrow::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives 
+In SymmetryFunctionAngularWide::compute2Derivatives j = 0index = 0
+In SymmetryFunctionAngularWide::compute2Derivatives k = 1index = 1
+In SymmetryFunctionAngularWide::compute2Derivatives Call getDerivativesG
+Call getDerivativesRijk
+Call getDerivativesRijRikm1
+In SymmetryFunctionAngularWide::compute2Derivatives Call setSecondDerivesijk
+i=0 k = 0
+Call calculateSymmetryFunctionGroups
+
+Call calculateSymmetryFunctionGroups
+
+i=0 k = 1
+Call calculateSymmetryFunctionGroups
+
+Call calculateSymmetryFunctionGroups
+
+i=0 k = 2
+Call calculateSymmetryFunctionGroups
+
+Call calculateSymmetryFunctionGroups
+
+i=1 k = 0
+Call calculateSymmetryFunctionGroups
+
+Call calculateSymmetryFunctionGroups
+
+i=1 k = 1
+Call calculateSymmetryFunctionGroups
+
+Call calculateSymmetryFunctionGroups
+
+i=1 k = 2
+Call calculateSymmetryFunctionGroups
+
+Call calculateSymmetryFunctionGroups
+
+i=2 k = 0
+Call calculateSymmetryFunctionGroups
+
+Call calculateSymmetryFunctionGroups
+
+i=2 k = 1
+Call calculateSymmetryFunctionGroups
+
+Call calculateSymmetryFunctionGroups
+
+i=2 k = 2
+Call calculateSymmetryFunctionGroups
+
+Call calculateSymmetryFunctionGroups
+
+ Atom  Atom         Analytic          Numeric         Anal-Num
+  O1x   O1x   2.15376913E+00   2.15376913E+00   8.73431993E-10
+  O1x   O1y   2.40236679E+00   2.40236678E+00   1.43074308E-09
+  O1x   O1z  -4.43841088E-01  -4.43841088E-01   2.14097962E-10
+  O1x   H2x   5.75995899E-01   5.75995899E-01   2.65292566E-10
+  O1x   H2y  -1.85602513E+00  -1.85602513E+00  -6.52373489E-10
+  O1x   H2z   1.60025918E+00   1.60025918E+00  -1.87812654E-10
+  O1x   H3x  -2.72976503E+00  -2.72976503E+00  -2.24894814E-09
+  O1x   H3y  -5.46341659E-01  -5.46341660E-01   2.03484896E-10
+  O1x   H3z  -1.15641809E+00  -1.15641809E+00  -5.77928816E-10
+  O1y   O1x   2.40236679E+00   2.40236678E+00   1.43074397E-09
+  O1y   O1y   4.92816346E+00   4.92816346E+00   3.46556206E-09
+  O1y   O1z  -2.05162346E+00  -2.05162346E+00  -9.67914637E-11
+  O1y   H2x   2.70089653E+00   2.70089653E+00   1.15862564E-09
+  O1y   H2y  -2.19378937E+00  -2.19378937E+00  -7.09296621E-10
+  O1y   H2z   3.08272134E+00   3.08272134E+00  -4.96463315E-10
+  O1y   H3x  -5.10326331E+00  -5.10326331E+00  -5.28165867E-09
+  O1y   H3y  -2.73437409E+00  -2.73437409E+00  -4.80310458E-10
+  O1y   H3z  -1.03109788E+00  -1.03109788E+00  -4.71862771E-10
+  O1z   O1x  -4.43841088E-01  -4.43841088E-01   2.14098017E-10
+  O1z   O1y  -2.05162346E+00  -2.05162346E+00  -9.67919078E-11
+  O1z   O1z   1.17590007E+00   1.17590007E+00   2.00308881E-10
+  O1z   H2x  -1.56462484E+00  -1.56462484E+00  -6.47034870E-10
+  O1z   H2y   4.86998621E-01   4.86998621E-01   1.16975540E-10
+  O1z   H2z  -1.19982189E+00  -1.19982189E+00   2.17390550E-10
+  O1z   H3x   2.00846593E+00   2.00846592E+00   2.38732056E-09
+  O1z   H3y   1.56462484E+00   1.56462484E+00   4.42120784E-10
+  O1z   H3z   2.39218196E-02   2.39218196E-02  -1.52440317E-11
+  H2x   O1x   5.75995899E-01   5.75995899E-01   2.65291900E-10
+  H2x   O1y   2.70089653E+00   2.70089653E+00   1.15862564E-09
+  H2x   O1z  -1.56462484E+00  -1.56462484E+00  -6.47033760E-10
+  H2x   H2x   2.10131378E+00   2.10131378E+00   8.76446027E-10
+  H2x   H2y  -5.62200925E-01  -5.62200925E-01  -1.55067181E-10
+  H2x   H2z   1.60870914E+00   1.60870914E+00  -3.32690320E-10
+  H2x   H3x  -2.67730968E+00  -2.67730968E+00  -3.15314885E-09
+  H2x   H3y  -2.13869560E+00  -2.13869560E+00  -6.27123242E-10
+  H2x   H3z  -4.40842967E-02  -4.40842967E-02   3.06142958E-11
+  H2y   O1x  -1.85602513E+00  -1.85602513E+00  -6.52372822E-10
+  H2y   O1y  -2.19378937E+00  -2.19378937E+00  -7.09296177E-10
+  H2y   O1z   4.86998621E-01   4.86998621E-01   1.16975707E-10
+  H2y   H2x  -5.62200925E-01  -5.62200925E-01  -1.55067847E-10
+  H2y   H2y   1.62386087E+00   1.62386086E+00   5.64559510E-10
+  H2y   H2z  -1.47401221E+00  -1.47401221E+00   1.65508496E-10
+  H2y   H3x   2.41822605E+00   2.41822605E+00   2.10588391E-09
+  H2y   H3y   5.69928505E-01   5.69928505E-01  -1.46698542E-10
+  H2y   H3z   9.87013585E-01   9.87013584E-01   4.95539387E-10
+  H2z   O1x   1.60025918E+00   1.60025918E+00  -1.87812654E-10
+  H2z   O1y   3.08272134E+00   3.08272134E+00  -4.96462871E-10
+  H2z   O1z  -1.19982189E+00  -1.19982189E+00   2.17390550E-10
+  H2z   H2x   1.60870914E+00   1.60870914E+00  -3.32690542E-10
+  H2z   H2y  -1.47401221E+00  -1.47401221E+00   1.65508940E-10
+  H2z   H2z   1.90270871E+00   1.90270871E+00  -2.91670688E-10
+  H2z   H3x  -3.20896832E+00  -3.20896831E+00  -3.26986749E-09
+  H2z   H3y  -1.60870914E+00  -1.60870913E+00  -2.51911381E-10
+  H2z   H3z  -7.02886817E-01  -7.02886816E-01  -3.19285931E-10
+  H3x   O1x  -2.72976503E+00  -2.72976503E+00  -2.24894947E-09
+  H3x   O1y  -5.10326331E+00  -5.10326331E+00  -5.28165778E-09
+  H3x   O1z   2.00846593E+00   2.00846592E+00   2.38731968E-09
+  H3x   H2x  -2.67730968E+00  -2.67730968E+00  -3.15314930E-09
+  H3x   H2y   2.41822605E+00   2.41822605E+00   2.10588391E-09
+  H3x   H2z  -3.20896832E+00  -3.20896831E+00  -3.26986749E-09
+  H3x   H3x   5.40707472E+00   5.40707471E+00   5.39775957E-09
+  H3x   H3y   2.68503726E+00   2.68503726E+00   4.38382664E-10
+  H3x   H3z   1.20050239E+00   1.20050239E+00   5.47313750E-10
+  H3y   O1x  -5.46341659E-01  -5.46341660E-01   2.03485229E-10
+  H3y   O1y  -2.73437409E+00  -2.73437409E+00  -4.80310458E-10
+  H3y   O1z   1.56462484E+00   1.56462484E+00   4.42119674E-10
+  H3y   H2x  -2.13869560E+00  -2.13869560E+00  -6.27123242E-10
+  H3y   H2y   5.69928505E-01   5.69928505E-01  -1.46698986E-10
+  H3y   H2z  -1.60870914E+00  -1.60870913E+00  -2.51911603E-10
+  H3y   H3x   2.68503726E+00   2.68503726E+00   4.38382664E-10
+  H3y   H3y   2.16444559E+00   2.16444559E+00   6.22672136E-10
+  H3y   H3z   4.40842967E-02   4.40842967E-02  -2.71448281E-11
+  H3z   O1x  -1.15641809E+00  -1.15641809E+00  -5.77928372E-10
+  H3z   O1y  -1.03109788E+00  -1.03109788E+00  -4.71862549E-10
+  H3z   O1z   2.39218196E-02   2.39218196E-02  -1.52437715E-11
+  H3z   H2x  -4.40842967E-02  -4.40842967E-02   3.06143305E-11
+  H3z   H2y   9.87013585E-01   9.87013584E-01   4.95538721E-10
+  H3z   H2z  -7.02886817E-01  -7.02886816E-01  -3.19286375E-10
+  H3z   H3x   1.20050239E+00   1.20050239E+00   5.47313084E-10
+  H3z   H3y   4.40842967E-02   4.40842967E-02  -2.71447309E-11
+  H3z   H3z   6.78964997E-01   6.78964997E-01   3.34965167E-10
+
+RMSD=         2.08513189E+00   2.08513189E+00   1.51733472E-09   5.85665076E-08 %
+UMAX=         5.40707472E+00   5.40707471E+00   5.39775957E-09   9.98277232E-08 %
+-------------------------------------------------------------------------------
+Finished.
+*******************************************************************************

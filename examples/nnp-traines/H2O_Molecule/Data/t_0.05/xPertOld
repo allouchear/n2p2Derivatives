@@ -1,0 +1,75 @@
+#!/bin/bash
+
+rm a*.com
+awk -v xname=$0 '
+BEGIN{
+  d=0.1
+  cs="0 1"
+  method=sprintf("\#B3LYP/6-31+G force Pop=NPA");
+
+  if(ARGC<=1) { printf("Syntax: \n %s  fileName.xyz\n",xname); ex=1;exit}
+    
+  # Read nAtoms -----------  
+  getline; nAtoms=$0
+
+  getline; 
+  for(k=1;k<=nAtoms;k++){
+      getline
+      symb[k] = $1
+      x[k]=$2; y[k]=$3; z[k]=$4;     
+    }
+  }
+{
+}
+END{
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("apx%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    x[i] =x[i]+d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    x[i] =x[i]-d;
+   }
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("amx%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    x[i] =x[i]-d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    x[i] =x[i]+d;
+  }
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("apy%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    y[i] =y[i]+d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    y[i] =y[i]-d;
+  }
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("amy%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    y[i] =y[i]-d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    y[i] =y[i]+d;
+  }
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("apz%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    z[i] =z[i]+d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    z[i] =z[i]-d;
+  }
+  for(i=1;i<=nAtoms;i++){
+    fn=sprintf("amz%d.com", i)
+    printf("%s\n\nxPert\n\n%s\n",method,cs) > fn
+    z[i] =z[i]-d;
+    for(k=1;k<=nAtoms;k++) printf("%s %f %f %f\n", symb[k], x[k],y[k],z[k]) > fn
+    printf("\n") > fn
+    z[i] =z[i]+d;
+  }
+  }
+' $1
+echo see a*.com

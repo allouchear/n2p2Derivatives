@@ -1,0 +1,40 @@
+	printf("nAtoms = %d\n",nAtoms);
+	for(k=0;k<3;k++) gp[k] = malloc(nAtoms*sizeof(double));
+	for(k=0;k<3;k++) gm[k] = malloc(nAtoms*sizeof(double));
+	for(k=0;k<3;k++) dmuX[k] = malloc(3*nAtoms*sizeof(double));
+
+	F = malloc(3*nAtoms*(3*nAtoms+1)/2*sizeof(double));
+
+	index = 0;
+	for(i=0;i<nAtoms;i++)
+	for(k=0;k<3;k++)
+	{
+		id=3*i+k;
+		if(show && k ==0) { printf("Computing of derivatives for atom # %d/%d\n",i+1,nAtoms);};
+		mol->atoms[i].coordinates[k] += dx;
+		qmModel->klass->calculateGradient(qmModel);
+		copyGradients(mol, gp);
+		for(c = 0;c<3;c++)  Dp[c] = mol->dipole[c];
+		
+		mol->atoms[i].coordinates[k] -= 2*dx;
+		qmModel->klass->calculateGradient(qmModel);
+		copyGradients(mol, gm);
+		for(c = 0;c<3;c++)  Dm[c] = mol->dipole[c];
+		for(c = 0;c<3;c++) dmuX[c][id] = (Dp[c]-Dm[c])/dx/2;
+		mol->atoms[i].coordinates[k] += dx;
+
+		for(j=0;j<=i;j++)
+		{
+			double invm = 1.0/sqrt( mol->atoms[i].mass* mol->atoms[j].mass);
+			for(c = 0;c<3;c++) 
+			{
+				jd = 3*j+c;
+				//printf("id = %d jd = %d\n",id,jd);
+				if(jd>id) continue;
+				index = jd + id*(id+1)/2;
+				//printf("index = %d i = %d k = %d j = %d c = %d\n",index,i,k,j,c);
+				F[index] = (gp[c][j]-gm[c][j])/dx/2; 
+				F[index] *= invm;
+			}
+		}
+	}

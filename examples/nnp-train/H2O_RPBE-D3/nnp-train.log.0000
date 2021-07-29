@@ -1,0 +1,493 @@
+
+*** SETUP: MPI ****************************************************************
+
+Number of processors: 1
+Process 1 of 1 (rank 0): ilmfixe086
+*******************************************************************************
+
+*******************************************************************************
+
+   NNP LIBRARY v2.0.0
+   ------------------
+
+Git branch  : 
+Git revision:  ()
+
+Number of OpenMP threads: 8
+*******************************************************************************
+
+*** SETUP: SETTINGS FILE ******************************************************
+
+Settings file name: input.nn
+Read 187 lines.
+Found 111 lines with keywords.
+*******************************************************************************
+
+*** SETUP: NORMALIZATION ******************************************************
+
+Data set normalization is used.
+Mean energy per atom     :  -2.3353824022135491E-01
+Conversion factor energy :   8.5167544626563699E+02
+Conversion factor length :   2.2798325235535355E+01
+Conversion factor dipole :   1.0000000000000000E+00
+
+Atomic energy offsets are used in addition to data set normalization.
+Offsets will be subtracted from reference energies BEFORE normalization is applied.
+*******************************************************************************
+
+*** SETUP: ELEMENT MAP ********************************************************
+
+Number of element strings found: 2
+Element  0:  H (  1)
+Element  1:  O (  8)
+*******************************************************************************
+
+*** SETUP: ELEMENTS ***********************************************************
+
+Number of elements is consistent: 2
+Atomic energy offsets per element:
+Element  0:  -4.58907710E-01
+Element  1:  -7.49451852E+01
+Energy offsets are automatically subtracted from reference energies.
+*******************************************************************************
+
+*** SETUP: CUTOFF FUNCTIONS ***************************************************
+
+Parameter alpha for inner cutoff: 0.000000
+Inner cutoff = Symmetry function cutoff * alpha
+Equal cutoff function type for all symmetry functions:
+CutoffFunction::CT_TANHU (2)
+f(r) = tanh^3(1 - r/rc)
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTIONS *************************************************
+
+Abbreviations:
+--------------
+ind .... Symmetry function index.
+ec ..... Central atom element.
+ty ..... Symmetry function type.
+e1 ..... Neighbor 1 element.
+e2 ..... Neighbor 2 element.
+eta .... Gaussian width eta.
+rs ..... Shift distance of Gaussian.
+la ..... Angle prefactor lambda.
+zeta ... Angle term exponent zeta.
+rc ..... Cutoff radius.
+ct ..... Cutoff type.
+ca ..... Cutoff alpha.
+ln ..... Line number in settings file.
+
+Short range atomic symmetry functions element  H :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln
+-------------------------------------------------------------------------------
+   1  H  2  H    1.000E-03 0.000E+00         1.200E+01  2 0.00   118
+   2  H  2  O    1.000E-03 0.000E+00         1.200E+01  2 0.00   128
+   3  H  2  H    1.000E-02 0.000E+00         1.200E+01  2 0.00   119
+   4  H  2  O    1.000E-02 0.000E+00         1.200E+01  2 0.00   129
+   5  H  2  H    3.000E-02 0.000E+00         1.200E+01  2 0.00   120
+   6  H  2  O    3.000E-02 0.000E+00         1.200E+01  2 0.00   130
+   7  H  2  H    6.000E-02 0.000E+00         1.200E+01  2 0.00   121
+   8  H  2  O    6.000E-02 0.000E+00         1.200E+01  2 0.00   131
+   9  H  2  O    1.500E-01 9.000E-01         1.200E+01  2 0.00   132
+  10  H  2  H    1.500E-01 1.900E+00         1.200E+01  2 0.00   122
+  11  H  2  O    3.000E-01 9.000E-01         1.200E+01  2 0.00   133
+  12  H  2  H    3.000E-01 1.900E+00         1.200E+01  2 0.00   123
+  13  H  2  O    6.000E-01 9.000E-01         1.200E+01  2 0.00   134
+  14  H  2  H    6.000E-01 1.900E+00         1.200E+01  2 0.00   124
+  15  H  2  O    1.500E+00 9.000E-01         1.200E+01  2 0.00   135
+  16  H  2  H    1.500E+00 1.900E+00         1.200E+01  2 0.00   125
+  17  H  3  O  O 1.000E-03 0.000E+00 -1  4.0 1.200E+01  2 0.00   182
+  18  H  3  O  O 1.000E-03 0.000E+00  1  4.0 1.200E+01  2 0.00   181
+  19  H  3  H  O 1.000E-02 0.000E+00 -1  4.0 1.200E+01  2 0.00   172
+  20  H  3  H  O 1.000E-02 0.000E+00  1  4.0 1.200E+01  2 0.00   170
+  21  H  3  H  O 3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   167
+  22  H  3  O  O 3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   180
+  23  H  3  H  O 3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   165
+  24  H  3  O  O 3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   179
+  25  H  3  H  O 7.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   162
+  26  H  3  H  O 7.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   160
+  27  H  3  H  O 2.000E-01 0.000E+00  1  1.0 1.200E+01  2 0.00   157
+-------------------------------------------------------------------------------
+Short range atomic symmetry functions element  O :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln
+-------------------------------------------------------------------------------
+   1  O  2  H    1.000E-03 0.000E+00         1.200E+01  2 0.00   137
+   2  O  2  O    1.000E-03 0.000E+00         1.200E+01  2 0.00   147
+   3  O  2  H    1.000E-02 0.000E+00         1.200E+01  2 0.00   138
+   4  O  2  O    1.000E-02 0.000E+00         1.200E+01  2 0.00   148
+   5  O  2  H    3.000E-02 0.000E+00         1.200E+01  2 0.00   139
+   6  O  2  O    3.000E-02 0.000E+00         1.200E+01  2 0.00   149
+   7  O  2  H    6.000E-02 0.000E+00         1.200E+01  2 0.00   140
+   8  O  2  O    6.000E-02 0.000E+00         1.200E+01  2 0.00   150
+   9  O  2  H    1.500E-01 9.000E-01         1.200E+01  2 0.00   141
+  10  O  2  O    1.500E-01 4.000E+00         1.200E+01  2 0.00   151
+  11  O  2  H    3.000E-01 9.000E-01         1.200E+01  2 0.00   142
+  12  O  2  O    3.000E-01 4.000E+00         1.200E+01  2 0.00   152
+  13  O  2  H    6.000E-01 9.000E-01         1.200E+01  2 0.00   143
+  14  O  2  O    6.000E-01 4.000E+00         1.200E+01  2 0.00   153
+  15  O  2  H    1.500E+00 9.000E-01         1.200E+01  2 0.00   144
+  16  O  2  O    1.500E+00 4.000E+00         1.200E+01  2 0.00   154
+  17  O  3  H  O 1.000E-03 0.000E+00 -1  4.0 1.200E+01  2 0.00   177
+  18  O  3  O  O 1.000E-03 0.000E+00 -1  4.0 1.200E+01  2 0.00   187
+  19  O  3  H  O 1.000E-03 0.000E+00  1  4.0 1.200E+01  2 0.00   176
+  20  O  3  O  O 1.000E-03 0.000E+00  1  4.0 1.200E+01  2 0.00   186
+  21  O  3  H  H 1.000E-02 0.000E+00 -1  4.0 1.200E+01  2 0.00   171
+  22  O  3  H  H 1.000E-02 0.000E+00  1  4.0 1.200E+01  2 0.00   169
+  23  O  3  H  H 3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   166
+  24  O  3  H  O 3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   175
+  25  O  3  O  O 3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   185
+  26  O  3  H  H 3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   164
+  27  O  3  H  O 3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   174
+  28  O  3  O  O 3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   184
+  29  O  3  H  H 7.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   161
+  30  O  3  H  H 7.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   159
+-------------------------------------------------------------------------------
+Minimum cutoff radius for element  H: 12.000000
+Minimum cutoff radius for element  O: 12.000000
+Maximum cutoff radius (global)      : 12.000000
+*******************************************************************************
+
+*** SETUP: NEURAL NETWORKS ****************************************************
+
+Normalize neurons (all elements): 0
+-------------------------------------------------------------------------------
+Atomic short range NN for element  H :
+Number of weights    :   1325
+Number of biases     :     51
+Number of connections:   1376
+Architecture       27   25   25    1
+-------------------------------------------------------------------------------
+   1   G   t   t   l
+   2   G   t   t    
+   3   G   t   t    
+   4   G   t   t    
+   5   G   t   t    
+   6   G   t   t    
+   7   G   t   t    
+   8   G   t   t    
+   9   G   t   t    
+  10   G   t   t    
+  11   G   t   t    
+  12   G   t   t    
+  13   G   t   t    
+  14   G   t   t    
+  15   G   t   t    
+  16   G   t   t    
+  17   G   t   t    
+  18   G   t   t    
+  19   G   t   t    
+  20   G   t   t    
+  21   G   t   t    
+  22   G   t   t    
+  23   G   t   t    
+  24   G   t   t    
+  25   G   t   t    
+  26   G            
+  27   G            
+-------------------------------------------------------------------------------
+Atomic short range NN for element  O :
+Number of weights    :   1400
+Number of biases     :     51
+Number of connections:   1451
+Architecture       30   25   25    1
+-------------------------------------------------------------------------------
+   1   G   t   t   l
+   2   G   t   t    
+   3   G   t   t    
+   4   G   t   t    
+   5   G   t   t    
+   6   G   t   t    
+   7   G   t   t    
+   8   G   t   t    
+   9   G   t   t    
+  10   G   t   t    
+  11   G   t   t    
+  12   G   t   t    
+  13   G   t   t    
+  14   G   t   t    
+  15   G   t   t    
+  16   G   t   t    
+  17   G   t   t    
+  18   G   t   t    
+  19   G   t   t    
+  20   G   t   t    
+  21   G   t   t    
+  22   G   t   t    
+  23   G   t   t    
+  24   G   t   t    
+  25   G   t   t    
+  26   G            
+  27   G            
+  28   G            
+  29   G            
+  30   G            
+-------------------------------------------------------------------------------
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTION SCALING ******************************************
+
+Equal scaling type for all symmetry functions:
+Scaling type::ST_SCALECENTER (3)
+Gs = Smin + (Smax - Smin) * (G - Gmean) / (Gmax - Gmin)
+Smin = 0.000000
+Smax = 1.000000
+Symmetry function scaling statistics from file: scaling.data
+-------------------------------------------------------------------------------
+
+Abbreviations:
+--------------
+ind ..... Symmetry function index.
+min ..... Minimum symmetry function value.
+max ..... Maximum symmetry function value.
+mean .... Mean symmetry function value.
+sigma ... Standard deviation of symmetry function values.
+sf ...... Scaling factor for derivatives.
+Smin .... Desired minimum scaled symmetry function value.
+Smax .... Desired maximum scaled symmetry function value.
+t ....... Scaling type.
+
+Scaling data for symmetry functions element  H :
+-------------------------------------------------------------------------------
+ ind       min       max      mean     sigma        sf  Smin  Smax t
+-------------------------------------------------------------------------------
+   1  1.32E+00  2.64E+00  2.17E+00  1.85E-01  7.57E-01  0.00  1.00 3
+   2  8.82E-01  1.50E+00  1.28E+00  9.26E-02  1.61E+00  0.00  1.00 3
+   3  9.51E-01  1.96E+00  1.58E+00  1.48E-01  9.86E-01  0.00  1.00 3
+   4  6.87E-01  1.17E+00  9.80E-01  7.38E-02  2.06E+00  0.00  1.00 3
+   5  5.31E-01  1.17E+00  8.69E-01  9.80E-02  1.56E+00  0.00  1.00 3
+   6  4.54E-01  7.72E-01  6.29E-01  4.96E-02  3.15E+00  0.00  1.00 3
+   7  2.77E-01  6.56E-01  4.36E-01  5.98E-02  2.64E+00  0.00  1.00 3
+   8  3.02E-01  5.03E-01  4.13E-01  3.36E-02  5.00E+00  0.00  1.00 3
+   9  2.71E-01  4.38E-01  3.55E-01  3.08E-02  6.00E+00  0.00  1.00 3
+  10  3.06E-01  8.27E-01  5.14E-01  8.24E-02  1.92E+00  0.00  1.00 3
+  11  1.68E-01  3.33E-01  2.64E-01  2.01E-02  6.07E+00  0.00  1.00 3
+  12  1.52E-01  5.18E-01  2.82E-01  5.30E-02  2.74E+00  0.00  1.00 3
+  13  8.00E-02  2.78E-01  1.83E-01  2.03E-02  5.05E+00  0.00  1.00 3
+  14  5.00E-02  3.13E-01  1.45E-01  3.54E-02  3.81E+00  0.00  1.00 3
+  15  1.10E-02  1.98E-01  7.57E-02  2.04E-02  5.35E+00  0.00  1.00 3
+  16  4.06E-03  2.00E-01  4.56E-02  2.68E-02  5.10E+00  0.00  1.00 3
+  17  1.64E-03  2.95E-02  1.63E-02  5.17E-03  3.59E+01  0.00  1.00 3
+  18  5.91E-03  2.99E-02  1.89E-02  3.50E-03  4.17E+01  0.00  1.00 3
+  19  1.82E-03  3.23E-02  1.53E-02  5.00E-03  3.28E+01  0.00  1.00 3
+  20  7.72E-02  1.92E-01  1.31E-01  1.80E-02  8.74E+00  0.00  1.00 3
+  21  6.40E-03  3.44E-02  1.60E-02  4.50E-03  3.58E+01  0.00  1.00 3
+  22  7.19E-04  1.14E-02  5.52E-03  2.11E-03  9.37E+01  0.00  1.00 3
+  23  4.62E-02  1.18E-01  7.37E-02  1.11E-02  1.38E+01  0.00  1.00 3
+  24  9.14E-04  7.24E-03  3.47E-03  1.00E-03  1.58E+02  0.00  1.00 3
+  25  1.12E-03  7.49E-03  3.34E-03  9.57E-04  1.57E+02  0.00  1.00 3
+  26  1.45E-02  3.49E-02  2.26E-02  3.22E-03  4.90E+01  0.00  1.00 3
+  27  6.30E-04  5.18E-03  2.00E-03  6.14E-04  2.20E+02  0.00  1.00 3
+-------------------------------------------------------------------------------
+Scaling data for symmetry functions element  O :
+-------------------------------------------------------------------------------
+ ind       min       max      mean     sigma        sf  Smin  Smax t
+-------------------------------------------------------------------------------
+   1  1.73E+00  3.02E+00  2.56E+00  1.81E-01  7.74E-01  0.00  1.00 3
+   2  5.28E-01  1.13E+00  9.17E-01  8.90E-02  1.65E+00  0.00  1.00 3
+   3  1.34E+00  2.33E+00  1.96E+00  1.42E-01  1.01E+00  0.00  1.00 3
+   4  3.40E-01  7.91E-01  6.24E-01  6.79E-02  2.22E+00  0.00  1.00 3
+   5  9.12E-01  1.52E+00  1.26E+00  9.08E-02  1.65E+00  0.00  1.00 3
+   6  1.40E-01  3.97E-01  2.87E-01  3.96E-02  3.89E+00  0.00  1.00 3
+   7  6.60E-01  9.96E-01  8.26E-01  5.63E-02  2.98E+00  0.00  1.00 3
+   8  4.27E-02  1.55E-01  1.02E-01  1.91E-02  8.93E+00  0.00  1.00 3
+   9  5.98E-01  8.72E-01  7.11E-01  4.60E-02  3.64E+00  0.00  1.00 3
+  10  2.00E-01  6.57E-01  4.43E-01  7.36E-02  2.19E+00  0.00  1.00 3
+  11  4.15E-01  6.51E-01  5.28E-01  2.97E-02  4.25E+00  0.00  1.00 3
+  12  1.05E-01  4.74E-01  2.88E-01  6.72E-02  2.71E+00  0.00  1.00 3
+  13  2.50E-01  5.00E-01  3.66E-01  2.97E-02  4.00E+00  0.00  1.00 3
+  14  3.13E-02  3.16E-01  1.52E-01  5.48E-02  3.51E+00  0.00  1.00 3
+  15  6.32E-02  3.10E-01  1.51E-01  2.93E-02  4.05E+00  0.00  1.00 3
+  16  8.50E-04  1.30E-01  3.71E-02  2.44E-02  7.72E+00  0.00  1.00 3
+  17  4.43E-03  2.51E-02  1.39E-02  3.25E-03  4.83E+01  0.00  1.00 3
+  18  8.19E-05  1.35E-03  5.51E-04  2.34E-04  7.91E+02  0.00  1.00 3
+  19  7.91E-02  2.58E-01  1.77E-01  2.79E-02  5.59E+00  0.00  1.00 3
+  20  2.14E-03  1.48E-02  8.73E-03  2.12E-03  7.92E+01  0.00  1.00 3
+  21  1.38E-02  4.92E-02  2.89E-02  5.82E-03  2.83E+01  0.00  1.00 3
+  22  2.61E-02  1.05E-01  6.46E-02  1.28E-02  1.27E+01  0.00  1.00 3
+  23  2.90E-02  7.24E-02  4.53E-02  7.37E-03  2.31E+01  0.00  1.00 3
+  24  1.36E-03  1.10E-02  5.44E-03  1.61E-03  1.04E+02  0.00  1.00 3
+  25  1.65E-05  5.25E-04  1.89E-04  8.64E-05  1.97E+03  0.00  1.00 3
+  26  2.01E-02  7.66E-02  4.44E-02  8.77E-03  1.77E+01  0.00  1.00 3
+  27  1.08E-02  5.50E-02  3.05E-02  7.52E-03  2.27E+01  0.00  1.00 3
+  28  6.24E-05  1.44E-03  5.40E-04  2.26E-04  7.25E+02  0.00  1.00 3
+  29  8.48E-03  2.64E-02  1.53E-02  2.34E-03  5.59E+01  0.00  1.00 3
+  30  4.22E-03  1.88E-02  1.06E-02  2.30E-03  6.84E+01  0.00  1.00 3
+-------------------------------------------------------------------------------
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTION STATISTICS ***************************************
+
+Equal symmetry function statistics for all elements.
+Collect min/max/mean/sigma                        : 0
+Collect extrapolation warnings                    : 0
+Write extrapolation warnings immediately to stderr: 0
+Halt on any extrapolation warning                 : 0
+*******************************************************************************
+
+*** SETUP: RANDOM NUMBER GENERATOR ********************************************
+
+Random number generator seed: 1234567
+Seed for rank 0: 1234567
+Seed for global RNG: 1018032531
+*******************************************************************************
+
+*** STRUCTURE DISTRIBUTION ****************************************************
+
+Reading configurations from data file: input.data.
+Total number of structures: 20
+Number of structures per processor: 20
+Distributed 20 structures, 0 bytes (0.00 MiB) transferred.
+Number of local structures: 20
+*******************************************************************************
+
+*** DEFINE TRAINING/TEST SETS *************************************************
+
+Desired test set ratio      : 0.100000
+Total number of energies    : 20
+Number of training energies : 19
+Number of test     energies : 1
+Number of training forces   : 6048
+Number of test     forces   : 144
+Actual test set fraction    : 0.050000
+*******************************************************************************
+
+*** WRITE TRAINING/TEST SETS **************************************************
+
+Writing training/test set to files:
+ - train.data
+ - test.data
+*******************************************************************************
+
+*** WEIGHT INITIALIZATION *****************************************************
+
+Initial weights selected randomly in interval [-1.000000, 1.000000).
+Weights modified accoring to Glorot Bengio scheme.
+Biases set to zero.
+*******************************************************************************
+
+*** SETUP: TRAINING ***********************************************************
+
+Forces will be used for training.
+Force update weight:   1.00E+01
+Weight update via Kalman filter selected: updaterType::UT_KF (1)
+Parallel training (rank 0 updates) selected: ParallelMode::PM_TRAIN_RK0 (0)
+Per-task Jacobian selected: JacobianMode::JM_TASK (1)
+One Jacobi matrix row per MPI task is stored, within each task gradients are summed up.
+Combined updater for all elements selected: UpdateStrategy::US_COMBINED (0)
+Number of weight updaters    : 1
+Total fit parameters         : 2827
+Selection mode starting with epoch 0:
+Update candidates chosen randomly above RMSE threshold: SelectionMode::SM_THRESHOLD (2)
+Energy threshold: 0.00 * RMSE(Energy)
+Force  threshold: 1.00 * RMSE(Force)
+Maximum number of update candidate trials: 3
+-------------------------------------------------------------------------------
+Symmetry function memory is reused (HIGH MEMORY USAGE!).
+Training will be stopped after 10 epochs.
+Energy comparison will be written every 1 epochs.
+Force comparison will be written every 1 epochs.
+Weights will be written every 1 epochs.
+Neuron statistics will be written every 1 epochs.
+Training log with update information will be written to: train-log.out.
+-------------------------------------------------------------------------------
+Per-task batch size for energies             : 1
+Fraction of energies used per epoch          : 1.0000
+Energy updates per epoch                     : 19
+Energies used per update (rank   0 / global) :          1 / 1
+----------------------------------------------
+Per-task batch size for forces               : 1
+Fraction of forces used per epoch            : 0.0041
+Force updates per epoch                      : 24
+Forces used per update (rank   0 / global)   :          1 / 1
+----------------------------------------------
+Energy to force ratio                        :      1 :   1.3
+Energy to force percentages                  :  44.2% :  55.8%
+-------------------------------------------------------------------------------
+Allocating memory for energy error vector and Jacobian.
+Updater   0:
+ - Error    size: 1
+ - Jacobian size: 2827
+------------------------------------------------------
+Allocating memory for force error vector and Jacobian.
+Updater   0:
+ - Error    size: 1
+ - Jacobian size: 2827
+-------------------------------------------------------------------------------
+qtau is divided by number of projected updates per epoch.
+etatau is divided by number of projected updates per epoch.
+-------------------------------------------------------------------------------
+Combined weight updater:
+-------------------------------------------------------------------------------
+KalmanType::KT_STANDARD (0)
+sizeState       = 2827
+sizeObservation = 1
+epsilon         =   1.0000E-02
+q0              =   1.0000E-02
+qtau            =   5.3535E-02
+qmin            =   1.0000E-06
+eta0            =   1.0000E-02
+etatau          =   5.3535E-02
+etamax          =   1.0000E+00
+OpenMP threads used: 1
+-------------------------------------------------------------------------------
+*******************************************************************************
+
+*** CALCULATE NEIGHBOR LISTS **************************************************
+
+Temporarily disabling OpenMP parallelization: 1 threads.
+Calculating neighbor lists for all structures.
+Cutoff radius for neighbor lists: 12.000000
+Restoring OpenMP parallelization: max. 8 threads.
+*******************************************************************************
+
+*** TRAINING LOOP *************************************************************
+
+The training loop output covers different RMSEs, update and
+timing information. The following quantities are organized
+according to the matrix scheme below:
+-------------------------------------------------------------------
+ep ............ Epoch.
+Etrain_phys ... RMSE of training energies per atom (p. u.).
+Etest_phys .... RMSE of test     energies per atom (p. u.).
+Etrain_int .... RMSE of training energies per atom (i. u.).
+Etest_int ..... RMSE of test     energies per atom (i. u.).
+Ftrain_phys ... RMSE of training forces (p. u.).
+Ftest_phys .... RMSE of test     forces (p. u.).
+Ftrain_int .... RMSE of training forces (i. u.).
+Ftest_int ..... RMSE of test     forces (i. u.).
+E_count ....... Number of energy updates.
+F_count ....... Number of force  updates.
+count ......... Total number of updates.
+t_train ....... Time for training (seconds).
+t_rmse ........ Time for RMSE calculation (seconds).
+t_epoch ....... Total time for this epoch (seconds).
+t_tot ......... Total time for all epochs (seconds).
+Abbreviations:
+  p. u. = physical units.
+  i. u. = internal units.
+Note: RMSEs in internal units (columns 5 + 6) are only present 
+      if data set normalization is used.
+-------------------------------------------------------------------
+     1    2             3             4             5             6
+energy   ep   Etrain_phys    Etest_phys    Etrain_int     Etest_int
+forces   ep   Ftrain_phys    Ftest_phys    Ftrain_int     Ftest_int
+update   ep       E_count       F_count         count
+timing   ep       t_train        t_rmse       t_epoch         t_tot
+-------------------------------------------------------------------
+ENERGY    0   1.17658E-03   1.09663E-03   1.00207E+00   9.33973E-01
+FORCES    0   2.72052E-02   1.64585E-02   1.01630E+00   6.14841E-01
+TIMING    0          0.00          4.85          4.97          4.97
+------
+ENERGY    1   1.27011E-03   1.53096E-03   1.08172E+00   1.30388E+00
+FORCES    1   2.63757E-02   1.61201E-02   9.85315E-01   6.02198E-01
+UPDATE    1            19            24            43
+TIMING    1          3.37          0.17          3.66          8.63
+------
+ENERGY    2   1.40179E-03   2.12714E-03   1.19387E+00   1.81163E+00
+FORCES    2   3.15507E-02   2.82143E-02   1.17864E+00   1.05400E+00
+UPDATE    2            19            24            43
+TIMING    2          3.24          0.17          3.53         12.16
+------

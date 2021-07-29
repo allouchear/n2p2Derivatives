@@ -1,0 +1,4 @@
+make
+cd ../application
+rm nnp-predictHighDerivatives
+make

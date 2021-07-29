@@ -1,0 +1,2 @@
+rm nnp-predict2Derivatives
+make

@@ -1,0 +1,19 @@
+# angular
+symfunction_short H 9  0.2  0.0 1.0 1.0  12.00000
+
+symfunction_short O 9  0.07 0.0 1.0 1.0  12.00000
+symfunction_short H 9  0.07 0.0 1.0 1.0  12.00000
+symfunction_short O 9  0.07 0.0 -1.0 1.0  12.00000
+symfunction_short H 9  0.07 0.0 -1.0 1.0  12.00000
+
+symfunction_short O 9  0.03  0.0 1.0 1.0  12.00000
+symfunction_short H 9  0.03  0.0 1.0 1.0  12.00000
+symfunction_short O 9  0.03 0.0 -1.0 1.0  12.00000
+symfunction_short H 9  0.03 0.0 -1.0 1.0  12.00000
+
+symfunction_short O 9  0.01 0.0  1.0 4.0  12.00000
+symfunction_short H 9  0.01 0.0 1.0 4.0  12.00000
+symfunction_short O 9  0.01 0.0 -1.0 4.0  12.00000
+symfunction_short H 9  0.01 0.0 -1.0 4.0  12.00000
+
+

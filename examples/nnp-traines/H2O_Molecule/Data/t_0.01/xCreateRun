@@ -1,0 +1,7 @@
+ls a*.com > p
+
+awk '{printf("submitG09DPar medium 8 %s\n",$1);}' p > xrun
+
+chmod u+x xrun
+echo "see xrun "
+

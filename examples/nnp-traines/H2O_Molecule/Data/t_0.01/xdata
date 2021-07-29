@@ -1,0 +1,4 @@
+ls a*.log > xp
+sed -i 's/a/xLogMLDipole a/g' xp
+chmod u+x xp
+./xp

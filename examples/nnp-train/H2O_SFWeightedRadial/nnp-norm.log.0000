@@ -1,0 +1,67 @@
+
+*** SETUP: MPI ****************************************************************
+
+Number of processors: 1
+Process 1 of 1 (rank 0): ilmfixe086
+*******************************************************************************
+
+*******************************************************************************
+
+   NNP LIBRARY v2.0.0
+   ------------------
+
+Git branch  : 
+Git revision:  ()
+
+Number of OpenMP threads: 8
+*******************************************************************************
+
+*** SETUP: SETTINGS FILE ******************************************************
+
+Settings file name: input.nn
+Read 157 lines.
+Found 86 lines with keywords.
+*******************************************************************************
+
+*** SETUP: ELEMENT MAP ********************************************************
+
+Number of element strings found: 2
+Element  0:  H (  1)
+Element  1:  O (  8)
+*******************************************************************************
+
+*** SETUP: ELEMENTS ***********************************************************
+
+Number of elements is consistent: 2
+Atomic energy offsets per element:
+Element  0:   0.00000000E+00
+Element  1:   0.00000000E+00
+Energy offsets are automatically subtracted from reference energies.
+*******************************************************************************
+
+*** STRUCTURE DISTRIBUTION ****************************************************
+
+Reading configurations from data file: input.data.
+Total number of structures: 20
+Number of structures per processor: 20
+Distributed 20 structures, 0 bytes (0.00 MiB) transferred.
+Number of local structures: 20
+*******************************************************************************
+
+*** DATA SET NORMALIZATION ****************************************************
+
+Writing energy/atom vs. volume/atom data to "evsv.dat".
+
+Total number of structures: 20
+Total number of atoms     : 60
+Mean/sigma energy per atom:  -2.54657424E+01 +/-   1.31904163E-03
+Mean/sigma force          :  -2.77777779E-11 +/-   3.05889147E-02
+Conversion factor energy  :   7.5812618735947069E+02
+Conversion factor length  :   2.3190257282535811E+01
+
+Writing converted data file to "output.data".
+WARNING: This data set is provided for debugging purposes only and is NOT intended for training.
+
+Writing extended settings file to "output.nn".
+Use this settings file for normalized training.
+*******************************************************************************

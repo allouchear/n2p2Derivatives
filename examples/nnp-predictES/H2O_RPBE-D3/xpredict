@@ -1,0 +1,6 @@
+echo "Predict energies& forces"
+../../../bin/nnp-predict 0
+echo "Predict charge& dipole"
+../../../bin/nnp-predictES 
+echo "Predict energies& forces & charge & dipole"
+../../../bin/nnp-predictE_F_ES

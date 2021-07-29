@@ -1,0 +1,2 @@
+echo "Predict energies& forces"
+../../../bin/nnp-predict 0

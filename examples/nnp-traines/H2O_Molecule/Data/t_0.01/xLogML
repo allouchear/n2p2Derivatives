@@ -1,0 +1,59 @@
+awk 'BEGIN{
+charge="0"
+mult="1"
+ener="0"
+kk=1
+kkk=1
+}
+{
+symb="Uk"
+if(i == 1 && k == 2) if($2==1 ) symb="H";
+if(i == 1 && k == 2) if($2==6 ) symb="C";
+if(i == 1 && k == 2) if($2==7 ) symb="N";
+if(i == 1 && k == 2) if($2==8 ) symb="O";
+if(i == 1 && k == 2) if($2==15) symb="P";
+if(i == 1 && k == 2) if($2==16) symb="S";
+if(i == 1 && k == 2) if($2==13) symb="Al";
+if(i == 1 && k == 2) if($2==48) symb="Cd";
+if(i == 1 && k == 2) if($2==30) symb="Zn";
+if(i == 1 && k == 2) if($2==17) symb="Cl";
+if(i == 1 && k == 2 && NF>1) { sym[iAtom] = symb; x[iAtom]=$4; y[iAtom]=$5; z[iAtom] =$6; iAtom++;};
+if(ii == 1 && kk == 2 && NF>1) { fx[iF]=$3; fy[iF]=$4; fz[iF] =$5; iF++;};
+if(iii == 1 && kkk == 2 && NF>1) { ch[ic]=$3;ic++;};
+if($0 ~ /SCF Done:  E/) ener = $5
+if($0 ~ /E2\(B2PLYP/) { gsub("D","E",$6); ener = $6}
+if($0 ~ /Multiplicity =/) mult = $6
+if($0 ~ /Multiplicity =/) charge = $3
+if($0 ~ /Normal termination/) { j++; id=1; }
+if($0 ~ /Error termination/) { j++; id=1; }
+if(id == 1 && j>=1)
+{
+id=0
+};
+if($0 ~ /Forces \(H/) {ii=1; kk=1; iF=1;}
+if(ii==1) if($1 ~ /---------------/) kk++;
+
+if($0 ~ /Charge/) if($0 ~ /Core/) {iii=1; kkk=1; ic=1;}
+if(iii==1) if($1 ~ /---------------/) kkk++;
+
+if($0 ~ /Input orientation:/) {i=1; k=0; iAtom=1;}
+if(i==1) if($1 ~ /---------------/) k++;
+if(k==3) i=0;
+}
+END{
+ab=1.0/0.529177
+for(i=1;i<iAtom;i++) x[i] *= ab;
+for(i=1;i<iAtom;i++) y[i] *= ab;
+for(i=1;i<iAtom;i++) z[i] *= ab;
+
+printf("begin\n")
+printf("comment by xLogML\n")
+for(i=1;i<iAtom;i++)
+{
+  printf("atom %0.12f %0.12f %0.12f %s %0.12f %0.12f %0.12f %0.12f %0.12f\n",x[i],y[i],z[i],sym[i],ch[i], 0.0, fx[i], fy[i], fz[i]);
+}
+printf("energy  %0.14f\n", ener)
+printf("charge  %0.14f\n", charge)
+printf("end\n")
+}' $1
+exit

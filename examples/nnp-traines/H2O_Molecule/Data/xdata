@@ -1,0 +1,18 @@
+#!/bin/bash
+DD=$PWD
+cd t_0.01
+./xdata >  input.data
+cd $DD
+cd t_0.05  
+./xdata > input.data
+cd $DD
+cd t_0.2  
+./xdata > input.data
+cd $DD
+cd t_0.3
+./xdata > input.data
+cd $DD
+cat t_*/input.data > input.data
+cd $DD
+
+echo "see input.data & t*/input.data" 

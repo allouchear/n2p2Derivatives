@@ -1,0 +1,3 @@
+#!/bin/bash 
+cp weights.001.000800.out weights.001.data
+cp weights.008.000800.out weights.008.data

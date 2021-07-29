@@ -1,0 +1,21 @@
+################################################################################
+# Learning curves for energies and forces.
+################################################################################
+# Col  Name             Description
+################################################################################
+# 1    epoch            Current epoch.
+# 2    rmse_Etrain_phys RMSE of training energies per atom (physical units).
+# 3    rmse_Etest_phys  RMSE of test energies per atom (physical units).
+# 4    rmse_Ftrain_phys RMSE of training forces (physical units).
+# 5    rmse_Ftest_phys  RMSE of test forces (physical units).
+# 6    rmse_Etrain_int  RMSE of training energies per atom (internal units).
+# 7    rmse_Etest_int   RMSE of test energies per atom (internal units).
+# 8    rmse_Ftrain_int  RMSE of training forces (internal units).
+# 9    rmse_Ftest_int   RMSE of test forces (internal units).
+##################################################################################################################################################
+#        1                2                3                4                5                6                7                8                9
+#    epoch rmse_Etrain_phys  rmse_Etest_phys rmse_Ftrain_phys  rmse_Ftest_phys  rmse_Etrain_int   rmse_Etest_int  rmse_Ftrain_int   rmse_Ftest_int
+##################################################################################################################################################
+         0   1.17658233E-03   1.09663051E-03   2.72051656E-02   1.64585427E-02   1.00206628E+00   9.33973277E-01   1.01630148E+00   6.14840631E-01
+         1   1.27010571E-03   1.53096183E-03   2.63756978E-02   1.61201036E-02   1.08171785E+00   1.30388260E+00   9.85315104E-01   6.02197586E-01
+         2   1.40178989E-03   2.12713688E-03   3.15506679E-02   2.82142796E-02   1.19387003E+00   1.81163025E+00   1.17863610E+00   1.05399888E+00

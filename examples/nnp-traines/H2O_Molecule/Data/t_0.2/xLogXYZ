@@ -1,0 +1,43 @@
+awk 'BEGIN{
+charge="0"
+mult="1"
+ener="0"
+kk=1
+kkk=1
+}
+{
+symb="Uk"
+if(i == 1 && k == 2) if($2==1 ) symb="H";
+if(i == 1 && k == 2) if($2==6 ) symb="C";
+if(i == 1 && k == 2) if($2==7 ) symb="N";
+if(i == 1 && k == 2) if($2==8 ) symb="O";
+if(i == 1 && k == 2) if($2==15) symb="P";
+if(i == 1 && k == 2) if($2==16) symb="S";
+if(i == 1 && k == 2) if($2==13) symb="Al";
+if(i == 1 && k == 2) if($2==48) symb="Cd";
+if(i == 1 && k == 2) if($2==30) symb="Zn";
+if(i == 1 && k == 2) if($2==17) symb="Cl";
+if(i == 1 && k == 2 && NF>1) { sym[iAtom] = symb; x[iAtom]=$4; y[iAtom]=$5; z[iAtom] =$6; iAtom++;};
+if($0 ~ /SCF Done:  E/) ener = $5
+if($0 ~ /Multiplicity =/) mult = $6
+if($0 ~ /Multiplicity =/) charge = $3
+if($0 ~ /Normal termination/) { j++; id=1; }
+if($0 ~ /Error termination/) { j++; id=1; }
+if(id == 1 && j>=1)
+{
+id=0
+};
+
+if($0 ~ /orientation:/) {i=1; k=0; iAtom=1;}
+if(i==1) if($1 ~ /---------------/) k++;
+if(k==3) i=0;
+}
+END{
+printf("%d\n",iAtom-1)
+printf("comment by xLogXYZ\n")
+for(i=1;i<iAtom;i++)
+{
+  printf("%s %0.12f %0.12f %0.12f\n",sym[i], x[i],y[i],z[i]);
+}
+}' $1
+exit

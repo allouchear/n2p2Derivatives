@@ -1,0 +1,527 @@
+
+*** SETUP: MPI ****************************************************************
+
+Number of processors: 1
+Process 1 of 1 (rank 0): ilmfixe086
+*******************************************************************************
+
+*******************************************************************************
+
+   NNP LIBRARY v2.0.0
+   ------------------
+
+Git branch  : master
+Git revision: 9dbf581 (9dbf581ef6eef922746c78d30f72975ff3668ae9)
+
+Number of OpenMP threads: 8
+*******************************************************************************
+
+*** SETUP: SETTINGS FILE ******************************************************
+
+Settings file name: inputES.nn
+Read 189 lines.
+Found 109 lines with keywords.
+*******************************************************************************
+
+*** SETUP: NORMALIZATION ******************************************************
+
+Data set normalization is not used.
+*******************************************************************************
+
+*** SETUP: ELEMENT MAP ********************************************************
+
+Number of element strings found: 2
+Element  0:  H (  1)
+Element  1:  O (  8)
+*******************************************************************************
+
+*** SETUP: ELEMENTS ***********************************************************
+
+Number of elements is consistent: 2
+Atomic energy offsets per element:
+Element  0:  -4.58907710E-01
+Element  1:  -7.49451852E+01
+Energy offsets are automatically subtracted from reference energies.
+*******************************************************************************
+
+*** SETUP: CUTOFF FUNCTIONS ***************************************************
+
+Parameter alpha for inner cutoff: 0.000000
+Inner cutoff = Symmetry function cutoff * alpha
+Equal cutoff function type for all symmetry functions:
+CutoffFunction::CT_TANHU (2)
+f(r) = tanh^3(1 - r/rc)
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTIONS *************************************************
+
+Abbreviations:
+--------------
+ind .... Symmetry function index.
+ec ..... Central atom element.
+ty ..... Symmetry function type.
+e1 ..... Neighbor 1 element.
+e2 ..... Neighbor 2 element.
+eta .... Gaussian width eta.
+rs ..... Shift distance of Gaussian.
+la ..... Angle prefactor lambda.
+zeta ... Angle term exponent zeta.
+rc ..... Cutoff radius.
+ct ..... Cutoff type.
+ca ..... Cutoff alpha.
+ln ..... Line number in settings file.
+
+Short range atomic symmetry functions element  H :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln
+-------------------------------------------------------------------------------
+   1  H  2  H    1.000E-03 0.000E+00         1.200E+01  2 0.00   120
+   2  H  2  O    1.000E-03 0.000E+00         1.200E+01  2 0.00   130
+   3  H  2  H    1.000E-02 0.000E+00         1.200E+01  2 0.00   121
+   4  H  2  O    1.000E-02 0.000E+00         1.200E+01  2 0.00   131
+   5  H  2  H    3.000E-02 0.000E+00         1.200E+01  2 0.00   122
+   6  H  2  O    3.000E-02 0.000E+00         1.200E+01  2 0.00   132
+   7  H  2  H    6.000E-02 0.000E+00         1.200E+01  2 0.00   123
+   8  H  2  O    6.000E-02 0.000E+00         1.200E+01  2 0.00   133
+   9  H  2  O    1.500E-01 9.000E-01         1.200E+01  2 0.00   134
+  10  H  2  H    1.500E-01 1.900E+00         1.200E+01  2 0.00   124
+  11  H  2  O    3.000E-01 9.000E-01         1.200E+01  2 0.00   135
+  12  H  2  H    3.000E-01 1.900E+00         1.200E+01  2 0.00   125
+  13  H  2  O    6.000E-01 9.000E-01         1.200E+01  2 0.00   136
+  14  H  2  H    6.000E-01 1.900E+00         1.200E+01  2 0.00   126
+  15  H  2  O    1.500E+00 9.000E-01         1.200E+01  2 0.00   137
+  16  H  2  H    1.500E+00 1.900E+00         1.200E+01  2 0.00   127
+  17  H  3  O  O 1.000E-03 0.000E+00 -1  4.0 1.200E+01  2 0.00   184
+  18  H  3  O  O 1.000E-03 0.000E+00  1  4.0 1.200E+01  2 0.00   183
+  19  H  3  H  O 1.000E-02 0.000E+00 -1  4.0 1.200E+01  2 0.00   174
+  20  H  3  H  O 1.000E-02 0.000E+00  1  4.0 1.200E+01  2 0.00   172
+  21  H  3  H  O 3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   169
+  22  H  3  O  O 3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   182
+  23  H  3  H  O 3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   167
+  24  H  3  O  O 3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   181
+  25  H  3  H  O 7.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   164
+  26  H  3  H  O 7.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   162
+  27  H  3  H  O 2.000E-01 0.000E+00  1  1.0 1.200E+01  2 0.00   159
+-------------------------------------------------------------------------------
+Short range atomic symmetry functions element  O :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln
+-------------------------------------------------------------------------------
+   1  O  2  H    1.000E-03 0.000E+00         1.200E+01  2 0.00   139
+   2  O  2  O    1.000E-03 0.000E+00         1.200E+01  2 0.00   149
+   3  O  2  H    1.000E-02 0.000E+00         1.200E+01  2 0.00   140
+   4  O  2  O    1.000E-02 0.000E+00         1.200E+01  2 0.00   150
+   5  O  2  H    3.000E-02 0.000E+00         1.200E+01  2 0.00   141
+   6  O  2  O    3.000E-02 0.000E+00         1.200E+01  2 0.00   151
+   7  O  2  H    6.000E-02 0.000E+00         1.200E+01  2 0.00   142
+   8  O  2  O    6.000E-02 0.000E+00         1.200E+01  2 0.00   152
+   9  O  2  H    1.500E-01 9.000E-01         1.200E+01  2 0.00   143
+  10  O  2  O    1.500E-01 4.000E+00         1.200E+01  2 0.00   153
+  11  O  2  H    3.000E-01 9.000E-01         1.200E+01  2 0.00   144
+  12  O  2  O    3.000E-01 4.000E+00         1.200E+01  2 0.00   154
+  13  O  2  H    6.000E-01 9.000E-01         1.200E+01  2 0.00   145
+  14  O  2  O    6.000E-01 4.000E+00         1.200E+01  2 0.00   155
+  15  O  2  H    1.500E+00 9.000E-01         1.200E+01  2 0.00   146
+  16  O  2  O    1.500E+00 4.000E+00         1.200E+01  2 0.00   156
+  17  O  3  H  O 1.000E-03 0.000E+00 -1  4.0 1.200E+01  2 0.00   179
+  18  O  3  O  O 1.000E-03 0.000E+00 -1  4.0 1.200E+01  2 0.00   189
+  19  O  3  H  O 1.000E-03 0.000E+00  1  4.0 1.200E+01  2 0.00   178
+  20  O  3  O  O 1.000E-03 0.000E+00  1  4.0 1.200E+01  2 0.00   188
+  21  O  3  H  H 1.000E-02 0.000E+00 -1  4.0 1.200E+01  2 0.00   173
+  22  O  3  H  H 1.000E-02 0.000E+00  1  4.0 1.200E+01  2 0.00   171
+  23  O  3  H  H 3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   168
+  24  O  3  H  O 3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   177
+  25  O  3  O  O 3.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   187
+  26  O  3  H  H 3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   166
+  27  O  3  H  O 3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   176
+  28  O  3  O  O 3.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   186
+  29  O  3  H  H 7.000E-02 0.000E+00 -1  1.0 1.200E+01  2 0.00   163
+  30  O  3  H  H 7.000E-02 0.000E+00  1  1.0 1.200E+01  2 0.00   161
+-------------------------------------------------------------------------------
+Minimum cutoff radius for element  H: 12.000000
+Minimum cutoff radius for element  O: 12.000000
+Maximum cutoff radius (global)      : 12.000000
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTION GROUPS *******************************************
+
+Abbreviations:
+--------------
+ind .... Symmetry function group index.
+ec ..... Central atom element.
+ty ..... Symmetry function type.
+e1 ..... Neighbor 1 element.
+e2 ..... Neighbor 2 element.
+eta .... Gaussian width eta.
+rs ..... Shift distance of Gaussian.
+la ..... Angle prefactor lambda.
+zeta ... Angle term exponent zeta.
+rc ..... Cutoff radius.
+ct ..... Cutoff type.
+ca ..... Cutoff alpha.
+ln ..... Line number in settings file.
+mi ..... Member index.
+sfi .... Symmetry function index.
+e ...... Recalculate exponential term.
+
+Short range atomic symmetry function groups element  H :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln   mi  sfi e
+-------------------------------------------------------------------------------
+   1  H  2  H            *         *         1.200E+01  2 0.00     *    *    *  
+   -  -  -  -    1.000E-03 0.000E+00                 -  -    -   119    1    1  
+   -  -  -  -    1.000E-02 0.000E+00                 -  -    -   120    2    3  
+   -  -  -  -    3.000E-02 0.000E+00                 -  -    -   121    3    5  
+   -  -  -  -    6.000E-02 0.000E+00                 -  -    -   122    4    7  
+   -  -  -  -    1.500E-01 1.900E+00                 -  -    -   123    5   10  
+   -  -  -  -    3.000E-01 1.900E+00                 -  -    -   124    6   12  
+   -  -  -  -    6.000E-01 1.900E+00                 -  -    -   125    7   14  
+   -  -  -  -    1.500E+00 1.900E+00                 -  -    -   126    8   16  
+   2  H  2  O            *         *         1.200E+01  2 0.00     *    *    *  
+   -  -  -  -    1.000E-03 0.000E+00                 -  -    -   129    1    2  
+   -  -  -  -    1.000E-02 0.000E+00                 -  -    -   130    2    4  
+   -  -  -  -    3.000E-02 0.000E+00                 -  -    -   131    3    6  
+   -  -  -  -    6.000E-02 0.000E+00                 -  -    -   132    4    8  
+   -  -  -  -    1.500E-01 9.000E-01                 -  -    -   133    5    9  
+   -  -  -  -    3.000E-01 9.000E-01                 -  -    -   134    6   11  
+   -  -  -  -    6.000E-01 9.000E-01                 -  -    -   135    7   13  
+   -  -  -  -    1.500E+00 9.000E-01                 -  -    -   136    8   15  
+   3  H  3  H  O         *         *  *    * 1.200E+01  2 0.00     *    *    * *
+   -  -  -  -  - 1.000E-02 0.000E+00 -1  4.0         -  -    -   173    1   19 1
+   -  -  -  -  - 1.000E-02 0.000E+00  1  4.0         -  -    -   171    2   20 0
+   -  -  -  -  - 3.000E-02 0.000E+00 -1  1.0         -  -    -   168    3   21 1
+   -  -  -  -  - 3.000E-02 0.000E+00  1  1.0         -  -    -   166    4   23 0
+   -  -  -  -  - 7.000E-02 0.000E+00 -1  1.0         -  -    -   163    5   25 1
+   -  -  -  -  - 7.000E-02 0.000E+00  1  1.0         -  -    -   161    6   26 0
+   -  -  -  -  - 2.000E-01 0.000E+00  1  1.0         -  -    -   158    7   27 1
+   4  H  3  O  O         *         *  *    * 1.200E+01  2 0.00     *    *    * *
+   -  -  -  -  - 1.000E-03 0.000E+00 -1  4.0         -  -    -   183    1   17 1
+   -  -  -  -  - 1.000E-03 0.000E+00  1  4.0         -  -    -   182    2   18 0
+   -  -  -  -  - 3.000E-02 0.000E+00 -1  1.0         -  -    -   181    3   22 1
+   -  -  -  -  - 3.000E-02 0.000E+00  1  1.0         -  -    -   180    4   24 0
+-------------------------------------------------------------------------------
+Short range atomic symmetry function groups element  O :
+-------------------------------------------------------------------------------
+ ind ec ty e1 e2       eta        rs la zeta        rc ct   ca    ln   mi  sfi e
+-------------------------------------------------------------------------------
+   1  O  2  H            *         *         1.200E+01  2 0.00     *    *    *  
+   -  -  -  -    1.000E-03 0.000E+00                 -  -    -   138    1    1  
+   -  -  -  -    1.000E-02 0.000E+00                 -  -    -   139    2    3  
+   -  -  -  -    3.000E-02 0.000E+00                 -  -    -   140    3    5  
+   -  -  -  -    6.000E-02 0.000E+00                 -  -    -   141    4    7  
+   -  -  -  -    1.500E-01 9.000E-01                 -  -    -   142    5    9  
+   -  -  -  -    3.000E-01 9.000E-01                 -  -    -   143    6   11  
+   -  -  -  -    6.000E-01 9.000E-01                 -  -    -   144    7   13  
+   -  -  -  -    1.500E+00 9.000E-01                 -  -    -   145    8   15  
+   2  O  2  O            *         *         1.200E+01  2 0.00     *    *    *  
+   -  -  -  -    1.000E-03 0.000E+00                 -  -    -   148    1    2  
+   -  -  -  -    1.000E-02 0.000E+00                 -  -    -   149    2    4  
+   -  -  -  -    3.000E-02 0.000E+00                 -  -    -   150    3    6  
+   -  -  -  -    6.000E-02 0.000E+00                 -  -    -   151    4    8  
+   -  -  -  -    1.500E-01 4.000E+00                 -  -    -   152    5   10  
+   -  -  -  -    3.000E-01 4.000E+00                 -  -    -   153    6   12  
+   -  -  -  -    6.000E-01 4.000E+00                 -  -    -   154    7   14  
+   -  -  -  -    1.500E+00 4.000E+00                 -  -    -   155    8   16  
+   3  O  3  H  H         *         *  *    * 1.200E+01  2 0.00     *    *    * *
+   -  -  -  -  - 1.000E-02 0.000E+00 -1  4.0         -  -    -   172    1   21 1
+   -  -  -  -  - 1.000E-02 0.000E+00  1  4.0         -  -    -   170    2   22 0
+   -  -  -  -  - 3.000E-02 0.000E+00 -1  1.0         -  -    -   167    3   23 1
+   -  -  -  -  - 3.000E-02 0.000E+00  1  1.0         -  -    -   165    4   26 0
+   -  -  -  -  - 7.000E-02 0.000E+00 -1  1.0         -  -    -   162    5   29 1
+   -  -  -  -  - 7.000E-02 0.000E+00  1  1.0         -  -    -   160    6   30 0
+   4  O  3  H  O         *         *  *    * 1.200E+01  2 0.00     *    *    * *
+   -  -  -  -  - 1.000E-03 0.000E+00 -1  4.0         -  -    -   178    1   17 1
+   -  -  -  -  - 1.000E-03 0.000E+00  1  4.0         -  -    -   177    2   19 0
+   -  -  -  -  - 3.000E-02 0.000E+00 -1  1.0         -  -    -   176    3   24 1
+   -  -  -  -  - 3.000E-02 0.000E+00  1  1.0         -  -    -   175    4   27 0
+   5  O  3  O  O         *         *  *    * 1.200E+01  2 0.00     *    *    * *
+   -  -  -  -  - 1.000E-03 0.000E+00 -1  4.0         -  -    -   188    1   18 1
+   -  -  -  -  - 1.000E-03 0.000E+00  1  4.0         -  -    -   187    2   20 0
+   -  -  -  -  - 3.000E-02 0.000E+00 -1  1.0         -  -    -   186    3   25 1
+   -  -  -  -  - 3.000E-02 0.000E+00  1  1.0         -  -    -   185    4   28 0
+-------------------------------------------------------------------------------
+*******************************************************************************
+
+*** SETUP: NEURAL NETWORKS ****************************************************
+
+Normalize neurons (all elements): 0
+-------------------------------------------------------------------------------
+Atomic short range NN for element  H :
+Number of weights    :   1325
+Number of biases     :     51
+Number of connections:   1376
+Architecture       27   25   25    1
+-------------------------------------------------------------------------------
+   1   G   t   t   l
+   2   G   t   t    
+   3   G   t   t    
+   4   G   t   t    
+   5   G   t   t    
+   6   G   t   t    
+   7   G   t   t    
+   8   G   t   t    
+   9   G   t   t    
+  10   G   t   t    
+  11   G   t   t    
+  12   G   t   t    
+  13   G   t   t    
+  14   G   t   t    
+  15   G   t   t    
+  16   G   t   t    
+  17   G   t   t    
+  18   G   t   t    
+  19   G   t   t    
+  20   G   t   t    
+  21   G   t   t    
+  22   G   t   t    
+  23   G   t   t    
+  24   G   t   t    
+  25   G   t   t    
+  26   G            
+  27   G            
+-------------------------------------------------------------------------------
+Atomic short range NN for element  O :
+Number of weights    :   1400
+Number of biases     :     51
+Number of connections:   1451
+Architecture       30   25   25    1
+-------------------------------------------------------------------------------
+   1   G   t   t   l
+   2   G   t   t    
+   3   G   t   t    
+   4   G   t   t    
+   5   G   t   t    
+   6   G   t   t    
+   7   G   t   t    
+   8   G   t   t    
+   9   G   t   t    
+  10   G   t   t    
+  11   G   t   t    
+  12   G   t   t    
+  13   G   t   t    
+  14   G   t   t    
+  15   G   t   t    
+  16   G   t   t    
+  17   G   t   t    
+  18   G   t   t    
+  19   G   t   t    
+  20   G   t   t    
+  21   G   t   t    
+  22   G   t   t    
+  23   G   t   t    
+  24   G   t   t    
+  25   G   t   t    
+  26   G            
+  27   G            
+  28   G            
+  29   G            
+  30   G            
+-------------------------------------------------------------------------------
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTION SCALING ******************************************
+
+No scaling for symmetry functions.
+*******************************************************************************
+
+*** SETUP: SYMMETRY FUNCTION STATISTICS ***************************************
+
+Equal symmetry function statistics for all elements.
+Collect min/max/mean/sigma                        : 0
+Collect extrapolation warnings                    : 0
+Write extrapolation warnings immediately to stderr: 0
+Halt on any extrapolation warning                 : 0
+*******************************************************************************
+
+*** SETUP: RANDOM NUMBER GENERATOR ********************************************
+
+Random number generator seed: 1234567
+Seed for rank 0: 1234567
+Seed for global RNG: 1018032531
+*******************************************************************************
+
+*** STRUCTURE DISTRIBUTION ****************************************************
+
+Reading configurations from data file: inputES.data.
+Total number of structures: 20
+Number of structures per processor: 20
+Distributed 20 structures, 0 bytes (0.00 MiB) transferred.
+Number of local structures: 20
+*******************************************************************************
+
+*** DEFINE TRAINING/TEST SETS *************************************************
+
+Desired test set ratio      : 0.100000
+Total number of structures    : 20
+Number of training structures : 19
+Number of test     structures : 1
+Actual test set fraction    : 0.050000
+Charge fitted with a weight of    : 1.000000
+Dipole fitted with a weight of    : 1.000000
+*******************************************************************************
+
+*** WRITE TRAINING/TEST SETS **************************************************
+
+Writing training/test set to files:
+ - train.data
+ - test.data
+*******************************************************************************
+
+*** WEIGHT INITIALIZATION *****************************************************
+
+Reading old weights from files.
+Calling standard weight initialization routine...
+*******************************************************************************
+
+*** SETUP: NEURAL NETWORK WEIGHTS *********************************************
+
+Weight file name format: weightsES.%03zu.data
+Weight file for element  H: weightsES.001.data
+Weight file for element  O: weightsES.008.data
+*******************************************************************************
+
+*** SETUP: TRAINING ***********************************************************
+
+Weight update via Kalman filter selected: updaterType::UT_KF (1)
+Parallel training (rank 0 updates) selected: ParallelMode::PM_TRAIN_RK0 (0)
+Per-task Jacobian selected: JacobianMode::JM_TASK (1)
+One Jacobi matrix row per MPI task is stored, within each task gradients are summed up.
+Combined updater for all elements selected: UpdateStrategy::US_COMBINED (0)
+Number of weight updaters    : 1
+Total fit parameters         : 2827
+Selection mode starting with epoch 0:
+Update candidates chosen randomly above RMSE threshold: SelectionMode::SM_THRESHOLD (2)
+ES threshold: 0.00 * RMSE(ES)
+Maximum number of update candidate trials: 3
+-------------------------------------------------------------------------------
+Symmetry function memory is reused (HIGH MEMORY USAGE!).
+Training will be stopped after 20 epochs.
+ES comparison will be written every 20 epochs.
+Weights will be written every 20 epochs.
+Neuron statistics will be written every 20 epochs.
+Training log with update information will be written to: train-logES.out.
+-------------------------------------------------------------------------------
+Per-task batch size for energies             : 1
+Fraction of energies used per epoch          : 1.0000
+ES updates per epoch                     : 19
+ES used per update (rank   0 / global) :          1 / 1
+-------------------------------------------------------------------------------
+Allocating memory for energy error vector and Jacobian.
+Updater   0:
+ - Error    size: 1
+ - Jacobian size: 2827
+-------------------------------------------------------------------------------
+qtau is divided by number of projected updates per epoch.
+etatau is divided by number of projected updates per epoch.
+-------------------------------------------------------------------------------
+Combined weight updater:
+-------------------------------------------------------------------------------
+KalmanType::KT_STANDARD (0)
+sizeState       = 2827
+sizeObservation = 1
+epsilon         =   1.0000E-02
+q0              =   1.0000E-02
+qtau            =   1.2116E-01
+qmin            =   1.0000E-06
+eta0            =   1.0000E-02
+etatau          =   1.2116E-01
+etamax          =   1.0000E+00
+OpenMP threads used: 1
+-------------------------------------------------------------------------------
+*******************************************************************************
+
+*** CALCULATE NEIGHBOR LISTS **************************************************
+
+Temporarily disabling OpenMP parallelization: 1 threads.
+Calculating neighbor lists for all structures.
+Cutoff radius for neighbor lists: 12.000000
+Restoring OpenMP parallelization: max. 8 threads.
+*******************************************************************************
+
+*** TRAINING LOOP *************************************************************
+
+The training loop output covers different RMSEs, update and
+timing information. The following quantities are organized
+according to the matrix scheme below:
+-------------------------------------------------------------------
+ep ............ Epoch.
+QTrain ........ RMSE of training charges per atom.
+QTest ......... RMSE of test charges per atom.
+MuxTrain ...... RMSE of training Dipole x axis per atom.
+MuxTtest....... RMSE of test Dipole x axis per atom.
+MuyTrain ...... RMSE of training Dipole y axis per atom.
+MuyTtest....... RMSE of test Dipole y axis per atom.
+MuzTrain ...... RMSE of training Dipole z axis per atom.
+MuzTtest....... RMSE of test Dipole z axis per atom.
+t_train ....... Time for training (seconds).
+t_rmse ........ Time for RMSE calculation (seconds).
+t_epoch ....... Total time for this epoch (seconds).
+t_tot ......... Total time for all epochs (seconds).
+-------------------------------------------------------------------------------------------------------------------------------------
+            1     2            3             4             5             6             7             8             9           10
+CHARGE&DIPOLE    ep       QTrain         QTest      MuxTrain       MuxTest      MuyTrain       MuyTest      MuzTrain      MuzTest
+TIMING           ep      t_train        t_rmse       t_epoch         t_tot
+-------------------------------------------------------------------------------------------------------------------------------------
+CHARGE&DIPOLE    0   9.48893E-04   4.32879E-05   1.25102E-02   2.06752E-03   1.23355E-02   9.98222E-03   7.53107E-03   1.61586E-02
+TIMING           0          0.00          1.15          1.27          1.27
+-------------
+CHARGE&DIPOLE    1   4.85876E-03   4.81652E-03   4.86638E-02   3.66527E-02   5.03421E-02   4.67247E-02   4.77638E-02   5.28448E-02
+TIMING           1          0.03          0.01          0.16          1.43
+-------------
+CHARGE&DIPOLE    2   1.06395E-03   4.81217E-04   1.10817E-02   6.90045E-03   9.80716E-03   5.90908E-03   1.05100E-02   7.41892E-03
+TIMING           2          0.03          0.01          0.16          1.59
+-------------
+CHARGE&DIPOLE    3   9.37734E-04   1.09752E-04   1.02928E-02   4.22926E-03   8.87020E-03   2.98043E-03   9.36951E-03   9.65448E-03
+TIMING           3          0.03          0.01          0.16          1.74
+-------------
+CHARGE&DIPOLE    4   1.06708E-03   3.54858E-04   1.14421E-02   6.03769E-03   1.00631E-02   5.15547E-03   1.09659E-02   6.87465E-03
+TIMING           4          0.03          0.01          0.16          1.90
+-------------
+CHARGE&DIPOLE    5   1.70951E-03   9.17403E-04   1.57171E-02   8.80786E-03   1.63203E-02   8.72887E-03   1.65727E-02   1.05272E-03
+TIMING           5          0.03          0.01          0.16          2.05
+-------------
+CHARGE&DIPOLE    6   1.47696E-03   8.74553E-04   1.39200E-02   8.95375E-03   1.34544E-02   8.96778E-03   1.41655E-02   1.45094E-03
+TIMING           6          0.03          0.01          0.16          2.21
+-------------
+CHARGE&DIPOLE    7   1.08576E-03   3.76229E-04   1.05742E-02   5.40975E-03   9.82508E-03   5.06985E-03   1.03571E-02   4.84077E-03
+TIMING           7          0.03          0.01          0.16          2.37
+-------------
+CHARGE&DIPOLE    8   9.77335E-04   1.29470E-04   9.71133E-03   3.45174E-03   8.99333E-03   3.16851E-03   9.37540E-03   6.61196E-03
+TIMING           8          0.03          0.01          0.16          2.53
+-------------
+CHARGE&DIPOLE    9   8.79459E-04   1.87401E-04   8.68158E-03   8.18115E-04   8.05975E-03   3.46820E-04   8.16859E-03   9.34760E-03
+TIMING           9          0.03          0.01          0.16          2.68
+-------------
+CHARGE&DIPOLE   10   1.04008E-03   2.02789E-04   9.56822E-03   3.63582E-03   9.24952E-03   3.12147E-03   9.51472E-03   6.90743E-03
+TIMING          10          0.03          0.01          0.16          2.84
+-------------
+CHARGE&DIPOLE   11   9.58997E-04   6.75316E-05   9.03471E-03   2.71118E-03   8.50950E-03   1.99822E-03   8.74472E-03   7.94178E-03
+TIMING          11          0.03          0.01          0.16          2.99
+-------------
+CHARGE&DIPOLE   12   7.64985E-04   3.21056E-04   7.79853E-03   1.00381E-05   6.94103E-03   1.52111E-03   6.77884E-03   1.08715E-02
+TIMING          12          0.03          0.01          0.16          3.15
+-------------
+CHARGE&DIPOLE   13   7.99389E-04   1.16931E-04   7.64834E-03   1.40522E-03   7.08589E-03   6.65359E-05   7.17156E-03   8.78544E-03
+TIMING          13          0.03          0.01          0.16          3.31
+-------------
+CHARGE&DIPOLE   14   1.03521E-03   3.31009E-04   9.54558E-03   4.65967E-03   9.03082E-03   3.27597E-03   9.51333E-03   5.19444E-03
+TIMING          14          0.03          0.01          0.16          3.47
+-------------
+CHARGE&DIPOLE   15   7.52752E-04   1.12738E-04   7.42853E-03   1.37707E-03   6.61788E-03   4.76493E-04   6.69893E-03   8.33673E-03
+TIMING          15          0.03          0.01          0.16          3.63
+-------------
+CHARGE&DIPOLE   16   1.04252E-03   2.96150E-04   9.64007E-03   4.24947E-03   9.12202E-03   2.51363E-03   9.70377E-03   4.70723E-03
+TIMING          16          0.03          0.01          0.16          3.79
+-------------
+CHARGE&DIPOLE   17   7.23486E-04   3.02090E-04   6.92090E-03   5.69232E-04   6.32396E-03   2.28058E-03   6.40068E-03   8.73515E-03
+TIMING          17          0.03          0.01          0.16          3.95
+-------------
+CHARGE&DIPOLE   18   1.99214E-03   2.60390E-03   1.98408E-02   1.74882E-02   1.93444E-02   2.00105E-02   1.87857E-02   2.61988E-02
+TIMING          18          0.03          0.01          0.16          4.10
+-------------
+CHARGE&DIPOLE   19   8.28851E-04   1.57269E-04   7.78258E-03   2.57637E-03   7.76082E-03   1.58668E-03   7.90695E-03   4.63696E-03
+TIMING          19          0.03          0.01          0.16          4.26
+-------------
+CHARGE&DIPOLE   20   5.26214E-04   2.09188E-04   5.51659E-03   1.01498E-04   5.21449E-03   1.25980E-03   4.72818E-03   7.67307E-03
+TIMING          20          0.03          0.01          0.16          4.42
+*************************************************************************************************************************************
